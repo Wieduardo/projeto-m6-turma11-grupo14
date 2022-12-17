@@ -10,6 +10,11 @@ export default createGlobalStyle`
         font-family: 'Inter', sans-serif;
     }
 
+    body {
+        background-color: #FFFFFF;
+        color: #000;
+    }
+
     button {
         cursor: pointer;
     }
