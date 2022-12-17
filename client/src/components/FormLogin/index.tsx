@@ -18,7 +18,7 @@ const FormLogin = () => {
 
     const schema = yup.object().shape({
 
-        user: yup.string().required("Usuário obrigatório"),
+        username: yup.string().required("Usuário obrigatório"),
         password: yup.string().required("Senha obrigatória")
     })
 
@@ -34,7 +34,7 @@ const FormLogin = () => {
 
             <Input
             label="Usuário"
-            name="user"
+            name="username"
             register={ register }
             placeholder="Digitar usuário"
             autoComplete="off"
