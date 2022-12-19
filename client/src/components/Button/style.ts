@@ -53,6 +53,12 @@ const Container = styled.button<IButtonStyledProps>`
                     width: 182.51px;
                     height: 48px;
                 `
+            case "buttonSizeForm":
+
+                return css`
+                    width: 228px;
+                    height: 48px;
+                `
 
             default:
                 return false

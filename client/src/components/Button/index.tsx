@@ -7,7 +7,7 @@ interface IButtonProps {
     onClick?: MouseEventHandler
     disabled?: boolean | undefined
     type?: "button" | "submit" | "reset" | undefined
-    size: "buttonSizeLogin" | "buttonSizeHeader" | "buttonSizeBanner" | "buttonSizeFooter"
+    size: "buttonSizeLogin" | "buttonSizeHeader" | "buttonSizeBanner" | "buttonSizeFooter" | "buttonSizeForm"
     color: "buttonColorBlueLogin" | "buttonColorWhiteHeader" | "buttonColorGrayFooter" | "buttonColorBlueBanner"
 }
 

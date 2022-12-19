@@ -20,7 +20,7 @@ const Container = styled.div`
 const InputContainer = styled.input`
 
     width: 100%;
-    max-width: 315px;
+    /* max-width: 315px; */
     height: 48px;
 
     padding: 15px;
