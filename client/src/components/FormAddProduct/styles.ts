@@ -116,3 +116,18 @@ export const TextArea = styled.textarea`
   padding-left: 10px;
   padding-top: 10px;
 `;
+
+export const VehicleImageSection = styled.div`
+  width: 100%;
+`;
+
+export const CapeImageTitle = styled.p`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 24px;
+`;
+
+export const InputImageFileCape = styled.input`
+    
+`

@@ -6,7 +6,7 @@ import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useForm } from "react-hook-form"
 
-import { Button } from '../Button';
+import { UploadWidget } from '../UploadWidget';
 
 import { 
     Container,
@@ -26,7 +26,10 @@ import {
     VehicleDescriptionSection,
     DescriptionTitle,
     TextAreaSection,
-    TextArea
+    TextArea,
+    VehicleImageSection,
+    CapeImageTitle,
+    InputImageFileCape
  } from "./styles";
 
 const FormAddProduct = () => {
@@ -42,6 +45,7 @@ const FormAddProduct = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     })
+
 
     return(
         <Container>
@@ -109,6 +113,13 @@ const FormAddProduct = () => {
                         <AddTypeButton size="buttonSizeForm" color="buttonColorWhiteHeader" type="button">Moto</AddTypeButton>
                     </ModalAddType>
                 </ModalVehicleInfos>
+                <VehicleImageSection>
+                    <CapeImageTitle>
+                        Imagem da Capa
+                    </CapeImageTitle>
+                    <UploadWidget/>
+                </VehicleImageSection>
+
             </ReactModal>
         </Container>
     );
