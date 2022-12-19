@@ -1,4 +1,3 @@
-import { Login } from "./pages/login"
 import { ScreenRoutes } from "./routes"
 
 
