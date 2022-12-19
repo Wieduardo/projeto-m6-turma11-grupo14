@@ -11,7 +11,7 @@ const FooterLogin = () => {
 
             <p>© 2022 -  Todos os direitos reservados.</p>
 
-            <Button size="small" color="gray" type="button">^</Button>
+            <Button size="buttonSizeFooter" color="buttonColorGrayFooter" type="button">^</Button>
         </Container>
     )
 }

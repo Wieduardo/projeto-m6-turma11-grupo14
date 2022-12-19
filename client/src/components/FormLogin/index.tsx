@@ -86,13 +86,13 @@ const FormLogin = () => {
 
             <h3>Esqueci minha senha</h3>
 
-            <Button size="large" color="blue" type="submit" disabled={ load }>{
+            <Button size="buttonSizeLogin" color="buttonColorBlueLogin" type="submit" disabled={ load }>{
                 
                 load ? "Entrando..." : "Entrar"
                 
             }</Button>
             <p>Ainda não possui conta?</p>
-            <Button size="large" color="white" type="button">Cadastrar</Button>
+            <Button size="buttonSizeLogin" color="buttonColorWhiteHeader" type="button">Cadastrar</Button>
         </Container>
     )
 }
