@@ -28,7 +28,7 @@ class Product{
     user: string
 
     @Column({nullable: true})
-    comments: string[]
+    comments: string
 
     @Column()
     vehicle_type: string

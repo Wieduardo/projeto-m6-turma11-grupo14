@@ -8,4 +8,8 @@ app.use(express.json())
 
 app.use('/api/products', productRoutes)
 
+app.listen(3000, () => {
+    console.log("Servidor rodando")
+})
+
 export default app
