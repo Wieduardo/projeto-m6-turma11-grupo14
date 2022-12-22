@@ -1,11 +1,11 @@
-import { Login } from "./pages/Login"
+import { ScreenRoutes } from "./routes"
 
 
 function App() {
 
   return (
     <div className="App">
-      <Login/>
+      <ScreenRoutes/>
     </div>
   )
 }
