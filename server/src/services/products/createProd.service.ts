@@ -15,19 +15,17 @@ const createProdService = async ({
 
     const productsRepository = AppDataSource.getRepository(Product);
 
-    const product = new Product();
-	product.name = name;
-    product.description = description;
-    product.year = year;
-    product.kilometers = kilometers;
-    product.ad_type = ad_type;
-    product.price = price;
-    product.user = user;
-    product.vehicle_type = vehicle_type;
-    product.images = images;
-	
-
-	productsRepository.create(product);
+	const product = productsRepository.create({
+        name,
+        description,
+        year,
+        kilometers,
+        ad_type,
+        price,
+        user,
+        vehicle_type,
+        images});
+        
 	await productsRepository.save(product);
 
 	return product;
