@@ -1,11 +1,10 @@
-import { FormAddProduct } from "./components/FormAddProduct"
-import { Login } from "./pages/Login"
+import { ScreenRoutes } from "./routes"
 
 function App() {
 
   return (
     <div className="App">
-      <FormAddProduct/>
+      <ScreenRoutes/>
     </div>
   )
 }
