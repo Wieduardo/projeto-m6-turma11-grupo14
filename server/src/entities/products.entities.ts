@@ -34,7 +34,7 @@ class Product{
     vehicle_type: string
 
     @Column()
-    images: string[]
+    images: string
 }
 
 export { Product }
