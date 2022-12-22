@@ -9,3 +9,5 @@ interface IProductRequest{
     vehicle_type: string,
     images: string
 }
+
+export {IProductRequest}
