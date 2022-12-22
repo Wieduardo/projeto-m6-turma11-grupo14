@@ -6,7 +6,7 @@ import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useForm } from "react-hook-form"
 
-import { UploadWidget } from '../UploadWidget';
+import CloudinaryUploadWidget from '../CloudinaryUploadWidget';
 
 import { 
     Container,
@@ -29,7 +29,6 @@ import {
     TextArea,
     VehicleImageSection,
     CapeImageTitle,
-    InputImageFileCape
  } from "./styles";
 
 const FormAddProduct = () => {
@@ -117,7 +116,6 @@ const FormAddProduct = () => {
                     <CapeImageTitle>
                         Imagem da Capa
                     </CapeImageTitle>
-                    <UploadWidget/>
                 </VehicleImageSection>
 
             </ReactModal>
