@@ -18,8 +18,8 @@ const FormLogin = () => {
 
     const schema = yup.object().shape({
 
-        usuario: yup.string().required("Usuário obrigatório"),
-        senha: yup.string().required("Senha obrigatória")
+        username: yup.string().required("Usuário obrigatório"),
+        password: yup.string().required("Senha obrigatória")
     })
 
     const { register, handleSubmit, formState: { errors } } = useForm({
@@ -34,7 +34,7 @@ const FormLogin = () => {
 
             <Input
             label="Usuário"
-            name="usuario"
+            name="username"
             register={ register }
             placeholder="Digitar usuário"
             autoComplete="off"
@@ -46,7 +46,7 @@ const FormLogin = () => {
             <label>Senha { errors.senha?.message as string }</label>
             <div className="inputPassword">
                 <input
-                { ...register("senha") }
+                { ...register("password") }
                 placeholder="Digitar senha"
                 type={ typeInput ? "text" : "password" }
                 required={ true }
@@ -63,7 +63,7 @@ const FormLogin = () => {
                 {
                     showOutlineShow ? (
                         
-                        <AiOutlineEye className="biShow" onClick={ () => {
+                        <AiOutlineEyeInvisible className="biShow" onClick={ () => {
                         
                             setTypeInput(true)
                             
@@ -73,7 +73,7 @@ const FormLogin = () => {
                     
                         ) : (
                     
-                        <AiOutlineEyeInvisible className="biShow" onClick={ () => {
+                        <AiOutlineEye className="biShow" onClick={ () => {
 
                             setTypeInput(false)
 
@@ -86,13 +86,13 @@ const FormLogin = () => {
 
             <h3>Esqueci minha senha</h3>
 
-            <Button size="large" color="blue" type="submit" disabled={ load }>{
+            <Button size="buttonSizeLogin" color="buttonColorBlueLogin" type="submit" disabled={ load }>{
                 
                 load ? "Entrando..." : "Entrar"
                 
             }</Button>
             <p>Ainda não possui conta?</p>
-            <Button size="large" color="white" type="button">Cadastrar</Button>
+            <Button size="buttonSizeLogin" color="buttonColorWhiteHeader" type="button">Cadastrar</Button>
         </Container>
     )
 }

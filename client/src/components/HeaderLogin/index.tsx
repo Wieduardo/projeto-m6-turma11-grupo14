@@ -23,7 +23,7 @@ const HeaderLogin = () => {
                 <hr />
                 <div>
                     <p>Fazer Login</p>
-                    <Button size="medium" color="white" type="button" >Cadastrar</Button>
+                    <Button size="buttonSizeHeader" color="buttonColorWhiteHeader" type="button" >Cadastrar</Button>
                 </div>
             </menu>
 
@@ -48,7 +48,7 @@ const HeaderLogin = () => {
                         <hr />
                         <div>
                             <p>Fazer Login</p>
-                            <Button size="medium" color="white" type="button" >Cadastrar</Button>
+                            <Button size="buttonSizeHeader" color="buttonColorWhiteHeader" type="button" >Cadastrar</Button>
                         </div>
                     </nav>
                 }

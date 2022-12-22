@@ -26,25 +26,32 @@ const Container = styled.button<IButtonStyledProps>`
 
         switch(size) {
 
-            case "large":
+            case "buttonSizeLogin":
 
                 return css`
                     height: 48px;
                     max-width: 315px;
                 `
 
-            case "medium":
+            case "buttonSizeHeader":
 
                 return css`
                     height: 48px;
                     max-width: 133px;
                 `
 
-            case "small":
+            case "buttonSizeFooter":
 
                 return css`
                     height: 50px;
                     max-width: 53px;
+                `
+
+            case "buttonSizeBanner":
+
+                return css`
+                    width: 182.51px;
+                    height: 48px;
                 `
 
             default:
@@ -56,7 +63,7 @@ const Container = styled.button<IButtonStyledProps>`
 
         switch(color) {
 
-            case "blue":
+            case "buttonColorBlueLogin":
 
                 return css`
                     background-color: #4529E6;
@@ -71,7 +78,7 @@ const Container = styled.button<IButtonStyledProps>`
                     }
                 `
 
-            case "white":
+            case "buttonColorWhiteHeader":
 
                 return css`
                     background-color: #FDFDFD;
@@ -88,13 +95,30 @@ const Container = styled.button<IButtonStyledProps>`
                     }
                 `
                         
-            case "gray":
+            case "buttonColorGrayFooter":
 
                 return css`
                     background-color: #212529;
                     
                     color: #FFFFFF;
                     font-weight: 900;
+                `
+            
+            case "buttonColorBlueBanner":
+
+                return css`
+                    border: 1.5px solid #FDFDFD;
+                    border-radius: 4px;
+
+                    background-color: transparent;
+                    padding: 12px 28px;
+
+                    color: #FDFDFD;
+                    
+                    :hover {
+                        background-color: #FDFDFD;
+                        color: #5126EA;
+                    }
                 `
             
             default:
