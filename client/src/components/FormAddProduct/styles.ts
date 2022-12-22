@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import { Button } from "../Button";
 
-import { Input } from "../Input";
 
 export const Container = styled.section`
   width: 100%;
@@ -48,9 +46,6 @@ export const ModalAddType = styled.div`
   width: 100%;
 `;
 
-export const AddTypeButton = styled(Button)`
-  width: 228px;
-`;
 
 export const ModalVehicleInfos = styled.section`
   width: 100%;
@@ -76,9 +71,6 @@ export const VehicleDetailsSection = styled.div`
   margin-bottom: 24px;
 `;
 
-export const TitleInput = styled(Input)`
-  width: 100%;
-`;
 
 export const Details = styled.div`
   margin-top: 24px;
@@ -125,9 +117,22 @@ export const CapeImageTitle = styled.p`
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  margin-bottom: 24px;
 `;
 
-export const InputImageFileCape = styled.input`
-    
-`
+export const FirstImageGalery = styled.p`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 24px;
+`;
+
+export const FooterFormButtons = styled.div`
+  width: 100%;
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+
+  
+`;
+
+
