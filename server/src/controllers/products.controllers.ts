@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import createProdService from "../services/products/createProd.service";
 import { instanceToPlain } from "class-transformer";
 import listProdService from "../services/products/listProds.service";
+import listOneProdService from "../services/products/listOneProd.service";
 
 const createProdController = async( req: Request, res: Response)=>{
     const data = req.body;
@@ -16,4 +17,11 @@ const listProdController = async (req: Request, res: Response) => {
 	return res.json(instanceToPlain(prod));
 }
 
-export { createProdController, listProdController }
+const retrieveUserController= async (req: Request, res: Response) => {
+    const {prod_id} = req.params
+    const retrieveUser = await listOneProdService({prod_id});
+
+	return res.json(instanceToPlain(retrieveUser));
+}
+
+export { createProdController, listProdController, retrieveUserController }

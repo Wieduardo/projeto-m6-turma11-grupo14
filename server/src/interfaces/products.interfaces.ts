@@ -10,4 +10,8 @@ interface IProductRequest{
     images: string
 }
 
-export {IProductRequest}
+interface IProductId{
+    prod_id: string
+}
+
+export {IProductRequest, IProductId}
