@@ -5,7 +5,7 @@ const Container = styled.div`
     width: 100%;
     max-width: 520px;
     height: 354px;
-    background: #fff;
+    background: var(--whiteFixed);
     border-radius: 8px;
 
     header {
@@ -23,7 +23,7 @@ const Container = styled.div`
             font-size: 16px;
             line-height: 20px;
 
-            color: #212529;
+            color: var(--grey1);
         }
 
         & > img {
@@ -40,7 +40,7 @@ const Container = styled.div`
             max-width: 466px;
             height: 239px;
 
-            background: #E9ECEF;
+            background: var(--grey7);
             border-radius: 4px;
 
             display: flex;

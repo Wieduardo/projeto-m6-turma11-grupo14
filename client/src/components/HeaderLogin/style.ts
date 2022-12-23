@@ -8,8 +8,8 @@ const Container = styled.header`
 
     padding: 0 60px;
 
-    background-color: #FDFDFD;
-    border-bottom: 2px solid #DEE2E6;
+    background-color: var(--grey10);
+    border-bottom: 2px solid var(--grey6);
 
     display: flex;
     flex-direction: row;
@@ -37,14 +37,14 @@ const Container = styled.header`
             p {
                 font-weight: 600;
                 font-size: 16px;
-                color: #495057;
+                color: var(--grey2);
 
                 padding: 0 18px;
 
                 cursor: pointer;
 
                 :hover {
-                    color: #000;
+                    color: var(--grey0);
                     text-decoration: underline;
                 }
             }
@@ -53,7 +53,7 @@ const Container = styled.header`
         & > hr {
             border: none;
             width: 2px;
-            background-color: #DEE2E6;
+            background-color: var(--grey6);
         }
 
         & > div {
@@ -66,7 +66,7 @@ const Container = styled.header`
             p {
                 font-weight: 600;
                 font-size: 16px;
-                color: #4529E6;
+                color: var(--brand1);
 
                 padding-right: 30px;
                 cursor: pointer;
@@ -93,7 +93,7 @@ const Container = styled.header`
             left: 0;
             top: 8.5%;
             
-            background-color: #FDFDFD;
+            background-color: var(--grey10);
             filter: drop-shadow(0px 60px 40px rgba(0, 0, 0, 0.09));
 
             p {
