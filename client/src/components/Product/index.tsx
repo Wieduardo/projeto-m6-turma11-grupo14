@@ -14,6 +14,8 @@ export interface IProductProps {
     user: IUserProps
 }
 
+
+
 const Product = (product: any) => {
 
     return (
