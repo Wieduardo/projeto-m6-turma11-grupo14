@@ -5,6 +5,7 @@ import { instanceToPlain } from "class-transformer";
 import listProdService from "../services/products/listProds.service";
 import listOneProdService from "../services/products/listOneProd.service";
 import deleteProdService from "../services/products/deleteProd.service";
+import patchProdService from "../services/products/updateProd.service";
 
 const createProdController = async( req: Request, res: Response)=>{
     const data = req.body;
@@ -31,4 +32,23 @@ const deleteProdController = async (req: Request, res: Response) => {
 	return res.status(204).send();
 }
 
-export { createProdController, listProdController, retrieveUserController, deleteProdController }
+const patchProdController = async (req: Request, res: Response) => {
+    const { prod_id } = req.params
+    const { name, description,year,kilometers, ad_type,  price, vehicle_type, images } = req.body;
+
+	const output = await patchProdService({
+		prod_id,
+        name, 
+        description,
+        year,
+        kilometers, 
+        ad_type,  
+        price, 
+        vehicle_type,
+        images
+	});
+	return res.status(200).json(output);
+
+}
+
+export { createProdController, listProdController, retrieveUserController, deleteProdController, patchProdController }
