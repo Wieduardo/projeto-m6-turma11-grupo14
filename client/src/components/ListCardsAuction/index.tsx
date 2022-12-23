@@ -1,7 +1,12 @@
 import { CardAuction } from "../CardAuction"
+import { IProductProps } from "../Product"
 import { Container } from "./style"
 
-const ListCardLeilao = (auctions: any) => {
+interface IListAuctions {
+    auctions: IProductProps[]
+}
+
+const ListCardAuction = ({ auctions }: IListAuctions) => {
 
     return (
         <Container>
@@ -16,4 +21,4 @@ const ListCardLeilao = (auctions: any) => {
     )
 }
 
-export { ListCardLeilao }
+export { ListCardAuction }
