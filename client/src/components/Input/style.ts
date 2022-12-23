@@ -1,4 +1,8 @@
-import styled from "styled-components"
+import styled, { css }  from "styled-components"
+
+interface IInputStyledProps {
+    size: string
+}
 
 
 const Container = styled.div`
@@ -15,12 +19,14 @@ const Container = styled.div`
             color: #c20707;
         }
     }
+
+    
 `
 
-const InputContainer = styled.input`
+const InputContainer = styled.input<IInputStyledProps>`
 
     width: 100%;
-    max-width: 315px;
+    /* max-width: 315px; */
     height: 48px;
 
     padding: 15px;
@@ -40,6 +46,30 @@ const InputContainer = styled.input`
     &:hover {
         border-color: #000;
     }
+
+    ${({ size }) => {
+
+        switch(size) {
+
+            case "inputSize100%":
+
+                return css`
+                    height: 48px;
+                    width: 100%;
+                `
+
+            case "inputSizeSecondary":
+
+                return css`
+                    height: 48px;
+                    width: 144px;
+                `
+
+
+            default:
+                return false
+        }
+    }}
 `
 
 export { Container, InputContainer }

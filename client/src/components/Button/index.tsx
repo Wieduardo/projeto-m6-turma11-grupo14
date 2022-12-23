@@ -7,8 +7,8 @@ interface IButtonProps {
     onClick?: MouseEventHandler
     disabled?: boolean | undefined
     type?: "button" | "submit" | "reset" | undefined
-    size: "buttonSizeLogin" | "buttonSizeHeader" | "buttonSizeBanner" | "buttonSizeFooter"
-    color: "buttonColorBlueLogin" | "buttonColorWhiteHeader" | "buttonColorGrayFooter" | "buttonColorBlueBanner"
+    size: "buttonSizeLogin" | "buttonSizeHeader" | "buttonSizeBanner" | "buttonSizeFooter" | "buttonSizeForm" | "buttonSizeFormAddProductCancel" | "buttonSizeFormAddProduct"
+    color: "buttonColorBlueLogin" | "buttonColorWhiteHeader" | "buttonColorGrayFooter" | "buttonColorBlueBanner" | "buttonColorGrayCancelForm" | "buttonColorBlueCreateAd"
 }
 
 const Button = ({ children, size, color, disabled, onClick, type }: IButtonProps) => {

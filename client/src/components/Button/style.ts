@@ -53,6 +53,27 @@ const Container = styled.button<IButtonStyledProps>`
                     width: 182.51px;
                     height: 48px;
                 `
+            case "buttonSizeForm":
+
+                return css`
+                    width: 228px;
+                    height: 48px;
+                `
+
+            case "buttonSizeFormAddProductCancel":
+
+                return css`
+                    width: 126px;
+                    height: 48px;
+                    margin-right: 10px;
+                `
+
+            case "buttonSizeFormAddProduct":
+
+                return css`
+                    width: 193px;
+                    height: 48px;
+                `
 
             default:
                 return false
@@ -119,6 +140,35 @@ const Container = styled.button<IButtonStyledProps>`
                         background-color: #FDFDFD;
                         color: #5126EA;
                     }
+                `
+
+            case "buttonColorGrayCancelForm":
+
+                return css`
+                    border: 1.5px solid #DEE2E6;
+                    border-radius: 4px;
+
+                    background: #DEE2E6;
+                    padding: 12px 28px;
+
+                    color: #495057;
+                    
+                    :hover {
+                        background-color: #FDFDFD;
+                    }
+                `
+
+            case "buttonColorBlueCreateAd":
+
+                return css`
+                    border: 1.5px solid #DEE2E6;
+                    border-radius: 4px;
+
+                    background: #B0A6F0;
+                    padding: 12px 28px;
+
+                    color: #EDEAFD;
+                    
                 `
             
             default:
