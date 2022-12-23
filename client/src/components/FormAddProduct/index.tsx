@@ -32,8 +32,6 @@ import {
     FooterFormButtons
  } from "./styles";
 
-
-
 const FormAddProduct = () => {
 
     const [isOpen, setIsOpen] = useState(true);
@@ -42,20 +40,38 @@ const FormAddProduct = () => {
     const [vehicleType, setVehicleType] = useState("");
 
     const schema = yup.object().shape({
-        title: yup.string().required("Título é obrigatório"),
-        year: yup.string().required("Ano é obrigatório"),
-        km: yup.string().required("Quilometragem é obrigatória"),
+        name: yup.string().required("Título é obrigatório"),
+        year: yup.number().required("Ano é obrigatório").typeError("Informe um valor númerico"),
+        kilometers: yup.number().required("Quilometragem é obrigatória").typeError("Informe um valor númerico"),
         price: yup.string().required("O preço é obrigatório"),
         description: yup.string().required("A descrição é obrigatória"),
         imageCape: yup.string().required("A imagem de capa é obrigatoria."),
-        imageGalery: yup.string().required("A imagem é obrigatória")
+        imageGalery: yup.string().required("A imagem é obrigatória"),
+        ad_type: yup.string(),
+        vehicle_type: yup.string()
     })
 
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     })
 
-    const onSubmitFunction = (data: object) => console.log(data)
+    const onSubmitFunction = (data: any) => {
+        
+        if(!adType){
+            return alert("Selecione o tipo de anúncio.");
+        }
+        
+        if(!vehicleType){
+            return alert("Selecione o tipo de veículo.");
+        }
+
+        data.ad_type =  adType;
+        data.vehicle_type = vehicleType;
+        console.log(data)
+    } 
+
+
+
 
 
     return(
@@ -106,14 +122,13 @@ const FormAddProduct = () => {
                             Título
                         </VehicleTitle>
                         <Input 
-                            name="title" 
+                            name="name" 
                             register={ register } 
                             placeholder="Digitar título" 
                             required={true} 
                             size="inputSize100%" 
                             error={errors.titulo?.message }
                         />
-                        <label>{ errors.titulo?.message as string }</label>
                         <VehicleDetailsSection>
                             <Details>
                                 <VehicleDetail>
@@ -127,20 +142,18 @@ const FormAddProduct = () => {
                                     size="inputSizeSecondary" 
                                     error={errors.year?.message }
                                 />
-                                <label>{ errors.year?.message as string }</label>
                             </Details>
                             <Details>
                                 <VehicleDetail>
                                     Quilometragem
                                 </VehicleDetail>
                                 <Input 
-                                    name="km" 
+                                    name="kilometers" 
                                     register={ register } placeholder="0" 
                                     required={true} 
                                     size="inputSizeSecondary" 
-                                    error={errors.km?.message }
+                                    error={errors.kilometers?.message }
                                 />
-                                <label>{ errors.km?.message as string }</label>
                             </Details>
                             <Details>
                                 <VehicleDetail>
@@ -154,7 +167,6 @@ const FormAddProduct = () => {
                                     size="inputSizeSecondary" 
                                     error={errors.price?.message }
                                 />
-                                <label>{ errors.price?.message as string }</label>
                             </Details>
                         </VehicleDetailsSection>
                         <VehicleDescriptionSection>
@@ -168,7 +180,6 @@ const FormAddProduct = () => {
                                     register={ register } 
                                     error={errors.description?.message }
                                 />
-                                <label>{ errors.description?.message as string }</label>
                             </TextAreaSection>
                         </VehicleDescriptionSection>
                         <ModalAddTypeTitle>Tipo do veículo</ModalAddTypeTitle>
@@ -201,7 +212,6 @@ const FormAddProduct = () => {
                             size="inputSize100%" 
                             error={errors.imageCape?.message }
                         />
-                        <label>{ errors.imageCape?.message as string }</label>
                         <FirstImageGalery>
                             1ª imagem da galeria
                         </FirstImageGalery>
@@ -213,7 +223,6 @@ const FormAddProduct = () => {
                             size="inputSize100%" 
                             error={errors.imageGalery?.message }
                         />
-                        <label>{ errors.imageGalery?.message as string }</label>
                     </VehicleImageSection>
                     <FooterFormButtons>
                         <Button 

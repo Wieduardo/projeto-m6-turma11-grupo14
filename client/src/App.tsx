@@ -1,10 +1,11 @@
 import { ScreenRoutes } from "./routes"
+import { FormAddProduct } from "./components/FormAddProduct"
 
 function App() {
 
   return (
     <div className="App">
-      <ScreenRoutes/>
+      <FormAddProduct/>
     </div>
   )
 }
