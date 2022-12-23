@@ -4,6 +4,7 @@ import createProdService from "../services/products/createProd.service";
 import { instanceToPlain } from "class-transformer";
 import listProdService from "../services/products/listProds.service";
 import listOneProdService from "../services/products/listOneProd.service";
+import deleteProdService from "../services/products/deleteProd.service";
 
 const createProdController = async( req: Request, res: Response)=>{
     const data = req.body;
@@ -24,4 +25,10 @@ const retrieveUserController= async (req: Request, res: Response) => {
 	return res.json(instanceToPlain(retrieveUser));
 }
 
-export { createProdController, listProdController, retrieveUserController }
+const deleteProdController = async (req: Request, res: Response) => {
+    const {prod_id} = req.params
+    const deleteUser = await deleteProdService({prod_id});
+	return res.status(204).send();
+}
+
+export { createProdController, listProdController, retrieveUserController, deleteProdController }
