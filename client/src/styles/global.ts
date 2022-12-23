@@ -47,10 +47,10 @@ export default createGlobalStyle`
         --brand3: #B0A6F0;
         --brand4: #EDEAFD;
 
-        --grey0: ;
-        --grey1: #0B0D0D;
-        --grey2: #212529;
-        --grey3: #495057;
+        --grey0: #0B0D0D;
+        --grey1: #212529;
+        --grey2: #495057;
+        --grey3: #868E96;
         --grey4: #ADB5BD;
         --grey5: #CED4DA;
         --grey6: #DEE2E6;

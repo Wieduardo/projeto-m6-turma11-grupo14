@@ -16,7 +16,7 @@ const Container = styled.div`
         line-height: 25px;
 
         span {
-            color: #c20707;
+            color: var(--alert1);
         }
     }
 
@@ -26,12 +26,11 @@ const Container = styled.div`
 const InputContainer = styled.input<IInputStyledProps>`
 
     width: 100%;
-    /* max-width: 315px; */
     height: 48px;
 
     padding: 15px;
 
-    border: 2px solid #E9ECEF;
+    border: 2px solid var(--grey7);
     border-radius: 4px;
 
     font-weight: 400;
@@ -40,11 +39,11 @@ const InputContainer = styled.input<IInputStyledProps>`
     transition: .5s;
 
     &::placeholder {
-        color: #868E96;
+        color: var(--grey3);
     }
 
     &:hover {
-        border-color: #000;
+        border-color: var(--grey0);
     }
 
     ${({ size }) => {

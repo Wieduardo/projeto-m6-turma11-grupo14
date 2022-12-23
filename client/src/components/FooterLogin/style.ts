@@ -6,7 +6,7 @@ const Container = styled.footer`
     width: 100%;
     height: 140px;
 
-    background-color: #0B0D0D;
+    background-color: var(--grey0);
 
     display: flex;
     flex-direction: row;
@@ -19,7 +19,7 @@ const Container = styled.footer`
         font-weight: 400;
         font-size: 14px;
 
-        color: #FFFFFF;
+        color: var(--whiteFixed);
     }
 
     @media (max-width: 1024px) {

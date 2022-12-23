@@ -4,7 +4,7 @@ import styled from "styled-components"
 const Container = styled.div`
 
     height: 581px;
-    background-color: #5126EA;
+    background-color: var(--brand2);
 
     display: flex;
     flex-direction: column;
@@ -23,7 +23,7 @@ const Container = styled.div`
         max-width: 748px;
         text-align: center;
 
-        color: #FDFDFD;
+        color: var(--grey10);
 
         @media (max-width: 425px) {
 
@@ -43,7 +43,7 @@ const Container = styled.div`
         padding-bottom: 40px;
         text-align: center;
 
-        color: #F8F9FA;
+        color: var(--grey9);
     }
 
     & > div {

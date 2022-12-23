@@ -8,7 +8,7 @@ const Container = styled.div`
         width: 100%;
 
         height: 786px;
-        background-color: #F1F3F5;
+        background-color: var(--grey8);
 
         display: flex;
         justify-content: center;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
 
-    color: #FDFDFD;
+    color: var(--grey10);
     
     width: 735px;
     height: 388px;
@@ -21,7 +21,7 @@ const Container = styled.div`
             height: 326px;
             object-fit: cover;
 
-            background-color: #E9ECEF;
+            background-color: var(--grey7);
         }
 
         .divDescription {
@@ -41,7 +41,7 @@ const Container = styled.div`
 
             .divTimeAuction {
 
-                background: #FFFFFF;
+                background: var(--whiteFixed);
                 border-radius: 32px;
                 padding: 5px;
                 width: 123px;
@@ -55,7 +55,7 @@ const Container = styled.div`
                 time {
                     font-weight: 500;
                     font-size: 16px;
-                    color: #212529;
+                    color: var(--grey1);
                 }
             }
 
@@ -74,7 +74,7 @@ const Container = styled.div`
                 & > p {
                     font-weight: 400;
                     font-size: 16px;
-                    color: #CED4DA;
+                    color: var(--grey5);
 
                     padding-bottom: 28px;
                 }
@@ -105,9 +105,9 @@ const Container = styled.div`
                         & > p {
                             font-weight: 500;
                             font-size: 14px;
-                            color: #4529E6;
+                            color: var(--brand1);
                             
-                            background: #EDEAFD;
+                            background: var(--brand4);
                             border-radius: 4px;
                             padding: 4px 8px;
                         }
@@ -136,7 +136,7 @@ const Container = styled.div`
         align-items: center;
         justify-content: space-between;
         
-        background: #4529E6;
+        background: var(--brand1);
         height: 62px;
         padding: 24px 36px;
         border-bottom-right-radius: 4px;

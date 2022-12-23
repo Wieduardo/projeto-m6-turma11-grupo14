@@ -87,25 +87,25 @@ const Container = styled.button<IButtonStyledProps>`
             case "buttonColorBlueLogin":
 
                 return css`
-                    background-color: #4529E6;
-                    border: 1.5px solid #4529E6;
+                    background-color: var(--brand1);
+                    border: 1.5px solid var(--brand1);
 
-                    color: #FFFFFF;
+                    color: var(--whiteFixed);
                     padding: 12px 28px;
 
                     :hover {
-                        background-color: #7f6fd9;
-                        border-color: #7f6fd9;
+                        background-color: var(--brand2);
+                        border-color: var(--brand2);
                     }
                 `
 
             case "buttonColorWhiteHeader":
 
                 return css`
-                    background-color: #FDFDFD;
-                    border: 1.5px solid #ADB5BD;
+                    background-color: var(--grey10);
+                    border: 1.5px solid var(--grey4);
 
-                    color: #0B0D0D;
+                    color: var(--grey0);
                     padding: 12px 28px;
 
                     :hover {
@@ -119,55 +119,55 @@ const Container = styled.button<IButtonStyledProps>`
             case "buttonColorGrayFooter":
 
                 return css`
-                    background-color: #212529;
+                    background-color: var(--grey1);
                     
-                    color: #FFFFFF;
+                    color: var(--whiteFixed);
                     font-weight: 900;
                 `
             
             case "buttonColorBlueBanner":
 
                 return css`
-                    border: 1.5px solid #FDFDFD;
+                    border: 1.5px solid var(--grey10);
                     border-radius: 4px;
 
                     background-color: transparent;
                     padding: 12px 28px;
 
-                    color: #FDFDFD;
+                    color: var(--grey10);
                     
                     :hover {
-                        background-color: #FDFDFD;
-                        color: #5126EA;
+                        background-color: var(--grey10);
+                        color: var(--brand2);
                     }
                 `
 
             case "buttonColorGrayCancelForm":
 
                 return css`
-                    border: 1.5px solid #DEE2E6;
+                    border: 1.5px solid var(--grey6);
                     border-radius: 4px;
 
-                    background: #DEE2E6;
+                    background: var(--grey6);
                     padding: 12px 28px;
 
-                    color: #495057;
+                    color: var(--grey2);
                     
                     :hover {
-                        background-color: #FDFDFD;
+                        background-color: var(--grey10);
                     }
                 `
 
             case "buttonColorBlueCreateAd":
 
                 return css`
-                    border: 1.5px solid #DEE2E6;
+                    border: 1.5px solid var(--grey6);
                     border-radius: 4px;
 
-                    background: #B0A6F0;
+                    background: var(--brand3);
                     padding: 12px 28px;
 
-                    color: #EDEAFD;
+                    color: var(--brand4);
                     
                 `
             

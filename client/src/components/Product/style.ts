@@ -9,15 +9,15 @@ const Container = styled.div`
     & > img  {
         width: 312px;
         height: 152px;
-        background: #E9ECEF;
-        border: 2px solid #E9ECEF;
+        background: var(--grey7);
+        border: 2px solid var(--grey7);
     }
 
     & > h4 {
         font-weight: 600;
         font-size: 16px;
         line-height: 20px;
-        color: #212529;
+        color: var(--grey1);
       
         padding: 10px 0 15px 0;
     }
@@ -26,7 +26,7 @@ const Container = styled.div`
         font-weight: 400;
         font-size: 14px;
         line-height: 24px;
-        color: #495057;
+        color: var(--grey2);
 
         padding-bottom: 10px;
     }
@@ -44,14 +44,14 @@ const Container = styled.div`
             height: 32px;
             border-radius: 150px;
 
-            background-color: #5126EA;
+            background-color: var(--brand2);
         }
 
         h6 {
             font-weight: 500;
             font-size: 14px;
             line-height: 24px;
-            color: #495057;
+            color: var(--grey2);
             margin-left: 8px;
         }
 
@@ -65,7 +65,7 @@ const Container = styled.div`
             max-width: 113px;
 
             p {
-                background: #EDEAFD;
+                background: var(--brand4);
                 border-radius: 4px;
                 padding: 4px 8px;
                 width: 51px;
@@ -74,7 +74,7 @@ const Container = styled.div`
                 font-weight: 500;
                 font-size: 14px;
                 line-height: 24px;
-                color: #4529E6;
+                color: var(--brand1);
             }
         }
 
@@ -82,7 +82,7 @@ const Container = styled.div`
             font-weight: 500;
             font-size: 16px;
             line-height: 20px;
-            color: #212529;
+            color: var(--grey1);
         }
     }
 

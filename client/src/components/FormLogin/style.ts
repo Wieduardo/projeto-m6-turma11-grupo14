@@ -7,7 +7,7 @@ const Container = styled.form`
     max-width: 412px;
     height: 542px;
 
-    background-color: #FDFDFD;
+    background-color: var(--grey10);
     border-radius: 4px;
 
     padding: 44px 48px;
@@ -33,7 +33,7 @@ const Container = styled.form`
         padding-top: 50px;
         
         span {
-            color: #c20707;
+            color: var(--alert1);
         }
     }
 
@@ -49,7 +49,7 @@ const Container = styled.form`
 
         padding: 8px 15px;
 
-        border: 2px solid #E9ECEF;
+        border: 2px solid var(--grey7);
         border-radius: 4px;
 
         font-weight: 400;
@@ -58,7 +58,7 @@ const Container = styled.form`
         transition: .5s;
 
         &:hover {
-            border-color: #000;
+            border-color: var(--grey0);
             
             .biShow {
                     display: block;
@@ -72,7 +72,7 @@ const Container = styled.form`
             border: none;
 
             &::placeholder {
-                color: #868E96;
+                color: var(--grey3);
                 font-size: 16px;
             }
 
@@ -83,12 +83,12 @@ const Container = styled.form`
 
         .biShow {
 
-            color: #868E96;
+            color: var(--grey3);
             cursor: pointer;
             display: none;
 
             :hover {
-                color: #000;
+                color: var(--grey0);
                 transition: 1s;
             }
         }
@@ -96,7 +96,7 @@ const Container = styled.form`
 
     & > p, & > h3 {
 
-        color: #495057;
+        color: var(--grey2);
         font-weight: 500;
         font-size: 14px;
     }
