@@ -1,7 +1,12 @@
 import { IProductProps, Product } from "../Product"
 import { Container } from "./style"
 
-const ListProducts = (listName: string, products: any) => {
+interface IListProductsProps {
+    listName: string
+    products: IProductProps[]
+}
+
+const ListProducts = ({ listName, products }: IListProductsProps) => {
 
     return (
         <Container>
