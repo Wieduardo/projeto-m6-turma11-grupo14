@@ -15,7 +15,7 @@ export const PrincipalContent = styled.div`
     width: 90%;
     max-width: 752px;
     height: 355px;
-    background-color: var(--grey10);
+    background-color:var(--grey10);
     margin-top: 45px;
     border-radius: 4px;
     display: flex;
@@ -31,7 +31,7 @@ export const PrincipalImage = styled.img`
 
 export const SecondaryContent = styled.aside`
     display: none;
-    background-color: var(--grey10);
+    background-color:var(--grey10);
     width: 440px;
     height: 377px;
     margin-top: 45px;

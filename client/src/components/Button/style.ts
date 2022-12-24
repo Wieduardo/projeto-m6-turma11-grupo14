@@ -75,6 +75,13 @@ const Container = styled.button<IButtonStyledProps>`
                     height: 48px;
                 `
 
+            case "buttonColorBlueBy":
+
+                return css`
+                    width: 100px;
+                    height: 38px;
+                `
+
             default:
                 return false
         }
@@ -168,6 +175,19 @@ const Container = styled.button<IButtonStyledProps>`
                     padding: 12px 28px;
 
                     color: var(--brand4);
+                    
+                `
+
+            case "buttonColorBlueBy":
+
+                return css`
+                    border: 1.5px solid var(--brand1);
+                    border-radius: 4px;
+
+                    background: var(--brand1);
+                    padding: 12px 28px;
+
+                    color: var(--whiteFixed);
                     
                 `
             
