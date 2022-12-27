@@ -68,17 +68,17 @@ export default createGlobalStyle`
         --sucess2: #CCEBD7;
         --sucess3: #DDF3E4;
 
-        --reandom1: #E34D8C;
-        --reandom2: #C04277;
-        --reandom3: #7D2A4D;
-        --reandom4: #7000FF;
-        --reandom5: #620033;
-        --reandom6: #36007D;
-        --reandom7: #349974;
-        --reandom8: #2A7D5F;
-        --reandom9: #153D2E;
-        --reandom10: #6100FF;
-        --reandom11: #5700E3;
-        --reandom12: #30007D;
+        --random1: #E34D8C;
+        --random2: #C04277;
+        --random3: #7D2A4D;
+        --random4: #7000FF;
+        --random5: #620033;
+        --random6: #36007D;
+        --random7: #349974;
+        --random8: #2A7D5F;
+        --random9: #153D2E;
+        --random10: #6100FF;
+        --random11: #5700E3;
+        --random12: #30007D;
     }
 `
