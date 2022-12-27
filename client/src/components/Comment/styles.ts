@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     margin-bottom: 48px;
+    width: 90%;
 `;
 
 export const Infos = styled.div`

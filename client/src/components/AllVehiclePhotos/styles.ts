@@ -20,8 +20,7 @@ export const SecondaryContent = styled.aside`
     width: 100%;
     position: relative;
     bottom: 300px;
-    max-width: 752px;
-    
+    max-width: 752px;    
   }
 `;
 
