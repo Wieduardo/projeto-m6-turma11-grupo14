@@ -11,7 +11,7 @@ export interface InputProps {
     error?: any
     required?: boolean | undefined
     onChange?: any
-    size?: "inputSize100%" | "inputSizeSecondary"
+    size?: "inputSize100%" | "inputSizeSecondary" | "inputCommentSize"
 }
 
 const Input = ({ type, name, register, autoComplete, error, label, placeholder, required, onChange, size }: InputProps) => {

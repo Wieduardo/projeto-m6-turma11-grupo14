@@ -64,6 +64,13 @@ const InputContainer = styled.input<IInputStyledProps>`
                     width: 144px;
                 `
 
+            case "inputCommentSize":
+
+                return css`
+                    height: 128px;
+                    width: 284px;
+                `
+
 
             default:
                 return false

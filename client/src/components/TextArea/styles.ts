@@ -1,4 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+interface ITextAreaStyledProps {
+    size: string
+}
+
 
 export const Container = styled.div`
     text-align: left;
@@ -14,7 +19,7 @@ export const Container = styled.div`
     }
 `
 
-export const TextAreaContainer = styled.textarea`
+export const TextAreaContainer = styled.textarea<ITextAreaStyledProps>`
 
     width: 100%;
     height: 90px;
@@ -36,5 +41,23 @@ export const TextAreaContainer = styled.textarea`
     &:hover {
         border-color: var(--grey0);
     }
+
+    ${({ size }) => {
+
+switch(size) {
+
+    case "textAreaCommentSize%":
+
+        return css`
+            height: 128px;
+            width: 100%;
+        `
+
+    
+
+    default:
+        return false
+}
+}}
 
 `
