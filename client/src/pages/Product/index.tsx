@@ -4,6 +4,7 @@ import { ProductDetails } from "../../components/ProductDetails";
 import { ProductDescription } from "../../components/ProductDescription";
 import { AllVehiclePhotos } from "../../components/AllVehiclePhotos";
 import { useEffect, useState } from "react";
+import { CommentList } from "../../components/CommentList";
 
 
 const ProductPage = () => {
@@ -32,6 +33,7 @@ const ProductPage = () => {
             <ProductDetails/> 
             <ProductDescription/>
             {windowSize.innerWidth < 741 && <AllVehiclePhotos/>}
+            <CommentList/>
         </>
     )
 }
