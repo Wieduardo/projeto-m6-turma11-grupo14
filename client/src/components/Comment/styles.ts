@@ -40,5 +40,4 @@ export const CommentText = styled.p`
   font-size: 14px;
   color: var(--grey2);
   text-align: justify;
-  width: 640px;
 `;
