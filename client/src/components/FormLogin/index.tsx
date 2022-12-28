@@ -6,7 +6,10 @@ import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
+import { User01 } from "../../Mocks/User"
+import { User02 } from "../../Mocks/User"
 
 const FormLogin = () => {
 
@@ -16,8 +19,9 @@ const FormLogin = () => {
 
     const [ load, setLoad ] = useState<boolean>(false)
 
-    const schema = yup.object().shape({
+    const navigate = useNavigate();
 
+    const schema = yup.object().shape({
         username: yup.string().required("Usuário obrigatório"),
         password: yup.string().required("Senha obrigatória")
     })
@@ -26,7 +30,15 @@ const FormLogin = () => {
         resolver: yupResolver(schema)
     })
 
-    const onSubmitFunction = (data: object) => console.log(data)
+    const onSubmitFunction = (data: any) => {
+        if(data.username === User01.username){
+            navigate("/")
+        }else if(data.username === User02.username){
+            alert("Bem vindo usuário 02")
+        }else{
+            alert("Usuário não cadastrado")
+        }
+    }
 
     return (
         <Container onSubmit={ handleSubmit(onSubmitFunction) }>
