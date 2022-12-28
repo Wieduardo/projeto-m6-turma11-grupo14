@@ -6,6 +6,7 @@ import listProdService from "../services/products/listProds.service";
 import listOneProdService from "../services/products/listOneProd.service";
 import deleteProdService from "../services/products/deleteProd.service";
 import patchProdService from "../services/products/updateProd.service";
+import listUserProductsService from "../services/products/listUserProds.service";
 
 const createProdController = async( req: Request, res: Response)=>{
     const data = req.body;
@@ -51,4 +52,12 @@ const patchProdController = async (req: Request, res: Response) => {
 
 }
 
-export { createProdController, listProdController, retrieveUserController, deleteProdController, patchProdController }
+const listUserProductsController = async (req: Request, res: Response) => {
+    const { user_id } = req.params;
+
+    const products = await listUserProductsService(user_id);
+
+    res.status(200).json(products);
+}
+
+export { createProdController, listProdController, retrieveUserController, deleteProdController, patchProdController, listUserProductsController }
