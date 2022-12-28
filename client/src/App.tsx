@@ -1,6 +1,5 @@
 import { ScreenRoutes } from "./routes"
-import { FormAddProduct } from "./components/FormAddProduct"
-import { Home } from "./pages/Home"
+
 
 function App() {
 

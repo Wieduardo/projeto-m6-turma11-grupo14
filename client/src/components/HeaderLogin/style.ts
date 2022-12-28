@@ -62,11 +62,13 @@ const Container = styled.header`
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
 
             p {
                 font-weight: 600;
                 font-size: 16px;
                 color: var(--brand1);
+                margin-left: 44px;
 
                 padding-right: 30px;
                 cursor: pointer;

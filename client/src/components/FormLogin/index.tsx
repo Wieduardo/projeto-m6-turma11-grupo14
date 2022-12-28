@@ -5,13 +5,18 @@ import { Container } from "./style"
 import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import { User01 } from "../../Mocks/User"
 import { User02 } from "../../Mocks/User"
 
+
+import { UserContext } from "../../context/user"
+
 const FormLogin = () => {
+
+    const { handleLogin } = useContext(UserContext);
 
     const [ showOutlineShow, setShowOutlineShow ] = useState<boolean>(true)
 
@@ -32,9 +37,11 @@ const FormLogin = () => {
 
     const onSubmitFunction = (data: any) => {
         if(data.username === User01.username){
-            navigate("/")
+            navigate(`/${User01.id}/userHome`)
+            handleLogin();
         }else if(data.username === User02.username){
-            alert("Bem vindo usuário 02")
+            navigate(`/${User02.id}/userHome`)
+            handleLogin();
         }else{
             alert("Usuário não cadastrado")
         }

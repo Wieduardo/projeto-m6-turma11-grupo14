@@ -3,19 +3,28 @@ import menu from "../../assets/bars.svg"
 import close from "../../assets/xmark.svg"
 import { Button } from "../Button"
 import { Container } from "./style"
-import { useState } from "react"
+import { useState, useContext } from "react"
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
+import { UserContext } from "../../context/user";
+import { Profile } from "../Profile"
+
+import { User01 } from "../../Mocks/User"
+import { User02 } from "../../Mocks/User"
 
 
 const HeaderLogin = () => {
+
+    let { userId } = useParams();
+
+    const { isLoggedin } = useContext(UserContext);
 
     const [ menuOpen, setMenuOpen ] = useState<boolean>(false)
 
     const navigate = useNavigate()
 
-    function handleLogin(){
+    function handleNavigateLogin(){
         navigate("/login")
     }
 
@@ -30,8 +39,12 @@ const HeaderLogin = () => {
                 </nav>
                 <hr />
                 <div>
-                    <p onClick={() => handleLogin()}>Fazer Login</p>
+                    {!isLoggedin && <p onClick={() => handleNavigateLogin()}>Fazer Login</p>}                    
+                    {!isLoggedin ?                     
                     <Button size="buttonSizeHeader" color="buttonColorWhiteHeader" type="button" >Cadastrar</Button>
+                    :
+                    <Profile name={userId === User01.id ? User01.name : User02.name} img={userId === User01.id ? User01.profilePicture : User02.profilePicture}/>
+                    }
                 </div>
             </menu>
 
