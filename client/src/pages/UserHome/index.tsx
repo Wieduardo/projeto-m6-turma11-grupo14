@@ -5,7 +5,12 @@ import { Api } from "../../services/api";
 import {
     Container
 } from "./styles";
+
 import { HeaderLogin } from "../../components/HeaderLogin";
+import { ListCardAuction } from "../../components/ListCardsAuction";
+import { ListProducts } from "../../components/ListProducts";
+import { FooterLogin } from "../../components/FooterLogin";
+import { IProductProps } from "../../components/Product";
 
 interface UserProductsProps {
 	id: string,
@@ -24,6 +29,10 @@ const UserHome = () => {
 
     const [userProducts, setUserProducts] = useState<UserProductsProps[]>([]);
 
+    const [ products, setProducts ] = useState<IProductProps[]>([])
+
+    const [ auctions, setAuctions ] = useState<IProductProps[]>([])
+
     let { userId } = useParams();
 
     const fetchUserProducts = () => {
@@ -37,6 +46,19 @@ const UserHome = () => {
     return (
         <Container>
             <HeaderLogin/>
+            <div className="blueDiv"/>
+            <ListCardAuction
+            auctions={ auctions }
+            />
+            <ListProducts
+            listName="Carros"
+            products={ products }
+            />
+            <ListProducts
+            listName="Motos"
+            products={ products }
+            />
+            <FooterLogin />
         </Container>
     )
 }

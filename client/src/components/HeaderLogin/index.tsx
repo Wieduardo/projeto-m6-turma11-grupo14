@@ -68,8 +68,12 @@ const HeaderLogin = () => {
                         <p>Leilão</p>
                         <hr />
                         <div>
-                            <p>Fazer Login</p>
+                            {!isLoggedin && <p onClick={() => handleNavigateLogin()}>Fazer Login</p>}
+                            {!isLoggedin ?                     
                             <Button size="buttonSizeHeader" color="buttonColorWhiteHeader" type="button" >Cadastrar</Button>
+                            :
+                            <Profile name={userId === User01.id ? User01.name : User02.name} img={userId === User01.id ? User01.profilePicture : User02.profilePicture}/>
+                            }
                         </div>
                     </nav>
                 }
