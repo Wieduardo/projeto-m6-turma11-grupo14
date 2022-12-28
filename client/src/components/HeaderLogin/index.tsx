@@ -5,15 +5,23 @@ import { Button } from "../Button"
 import { Container } from "./style"
 import { useState } from "react"
 
+import { useNavigate } from "react-router-dom";
+
+
 
 const HeaderLogin = () => {
 
     const [ menuOpen, setMenuOpen ] = useState<boolean>(false)
 
+    const navigate = useNavigate()
+
+    function handleLogin(){
+        navigate("/login")
+    }
+
     return (
         <Container>
             <img src={ logo } alt="Motors shop" title="Motors shop" />
-
             <menu className="menuDefault">
                 <nav>
                     <p>Carros</p>
@@ -22,7 +30,7 @@ const HeaderLogin = () => {
                 </nav>
                 <hr />
                 <div>
-                    <p>Fazer Login</p>
+                    <p onClick={() => handleLogin()}>Fazer Login</p>
                     <Button size="buttonSizeHeader" color="buttonColorWhiteHeader" type="button" >Cadastrar</Button>
                 </div>
             </menu>
