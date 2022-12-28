@@ -82,6 +82,16 @@ const Container = styled.button<IButtonStyledProps>`
                     height: 38px;
                 `
 
+            case "btnCreateAdUserProfile":
+
+                return css`
+                    width: 160px;
+                    height: 48px;
+                    padding: 12px 28px 12px 28px;
+                    font-size: 14px;
+                    margin-top: 16px;
+                `
+
             default:
                 return false
         }
@@ -188,6 +198,20 @@ const Container = styled.button<IButtonStyledProps>`
                     padding: 12px 28px;
 
                     color: var(--whiteFixed);
+                    
+                `
+            
+            case "btnCreateAdUserProfile":
+
+                return css`
+                    border: 1.5px solid var(--brand1);
+                    border-radius: 4px;
+
+                    background: transparent;
+                    padding: 12px 28px;
+                    
+
+                    color: var(--brand1);
                     
                 `
             
