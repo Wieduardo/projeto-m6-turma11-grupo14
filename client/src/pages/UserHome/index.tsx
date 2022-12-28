@@ -11,6 +11,7 @@ import { ListCardAuction } from "../../components/ListCardsAuction";
 import { ListProducts } from "../../components/ListProducts";
 import { FooterLogin } from "../../components/FooterLogin";
 import { IProductProps } from "../../components/Product";
+import { UserCard } from "../../components/UserCard";
 
 interface UserProductsProps {
 	id: string,
@@ -47,6 +48,9 @@ const UserHome = () => {
         <Container>
             <HeaderLogin/>
             <div className="blueDiv"/>
+            <section className="userCardSection">
+                <UserCard/>
+            </section>
             <ListCardAuction
             auctions={ auctions }
             />
