@@ -68,7 +68,6 @@ const Container = styled.div`
                     font-weight: 600;
                     font-size: 20px;
 
-                    padding-bottom: 25px;
                 }
                 
                 & > p {
@@ -76,13 +75,12 @@ const Container = styled.div`
                     font-size: 16px;
                     color: var(--grey5);
 
-                    padding-bottom: 28px;
                 }
 
                 div {
                     display: flex;
                     flex-direction: row;
-                    padding-bottom: 28px;
+                    margin-top: 15px;
 
                     img {
                         width: 32px;
@@ -134,7 +132,7 @@ const Container = styled.div`
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
         
         background: var(--brand1);
         height: 62px;

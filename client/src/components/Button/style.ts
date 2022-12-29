@@ -92,6 +92,22 @@ const Container = styled.button<IButtonStyledProps>`
                     margin-top: 16px;
                 `
 
+            case "btnEditProduct":
+
+                return css`
+                    width: 132px;
+                    height: 38px;
+                    font-size: 14px;
+                `
+            case "btnProductDetails":
+
+                return css`
+                    width: 132px;
+                    height: 38px;
+                    font-size: 14px;
+                    margin-left: 25px;
+                `
+
             default:
                 return false
         }
@@ -212,6 +228,20 @@ const Container = styled.button<IButtonStyledProps>`
                     
 
                     color: var(--brand1);
+                    
+                `
+            
+            case "btnEditProductDetails":
+
+                return css`
+                    border: 1.5px solid var(--grey10);
+                    border-radius: 4px;
+
+                    background: transparent;
+                    padding: 12px 20px;
+                    
+
+                    color: var(--grey10);
                     
                 `
             

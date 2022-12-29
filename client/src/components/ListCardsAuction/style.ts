@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.div`
+
     
     padding: 100px 0;
 
@@ -25,7 +26,8 @@ const Container = styled.div`
         }
 
         & > menu {
-            height: 497px;
+            /* height: 497px; */
+            overflow-x: scroll;
         }
     }
 `

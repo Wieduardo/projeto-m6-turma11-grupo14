@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import GlobalStyled from './styles/global'
 import { BrowserRouter } from "react-router-dom";
-import UserProvider from "./context/user"
+import UserProvider from "./context"
 import { ChakraProvider } from "@chakra-ui/react";
 
 
