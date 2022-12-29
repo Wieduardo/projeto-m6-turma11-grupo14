@@ -8,13 +8,17 @@ interface IListProductsProps {
 
 const ListProducts = ({ listName, products }: IListProductsProps) => {
 
+
     return (
         <Container>
             <h2>{ listName }</h2>
 
             <menu>
                 {
-                    products.map((p: any) => <Product product={ p } key={ p.id } />)
+                    listName === "Carros" ?
+                    products.map((p: IProductProps) => (p.ad_type === "sell" && p.vehicle_type === "car" ) && <Product product={ p } key={ p.id } />)
+                    :
+                    products.map((p: IProductProps) => (p.ad_type === "sell" && p.vehicle_type === "motorcycle" ) && <Product product={ p } key={ p.id } />)
                 }
             </menu>
         </Container>

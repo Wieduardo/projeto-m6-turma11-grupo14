@@ -5,22 +5,25 @@ interface IUserProps {
 }
 
 export interface IProductProps {
+    id: string
     name: string
-    image: string
+    images: string
     description: string
     year: number
     kilometers: number
     price: string
     user: IUserProps
+    vehicle_type: string
+    ad_type: string
 }
 
 
 
-const Product = (product: any) => {
+const Product = ({product}: any) => {
 
     return (
         <Container>
-            <img src={ product.image } alt={ product.name } title={ product.name } />
+            <img src={ product.images } alt={ product.name } title={ product.name } />
 
             <h4>{ product.name }</h4>
 
@@ -28,7 +31,7 @@ const Product = (product: any) => {
 
             <div>
                 <img src="" />
-                <h6>{ product.user.name }</h6>
+                {/* <h6>{ product.user.name }</h6> */}
             </div>
 
             <div className="divKmYearPrice">
