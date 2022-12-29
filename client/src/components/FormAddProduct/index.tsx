@@ -10,6 +10,8 @@ import { Button } from '../Button';
 import { Input } from '../Input';
 import { TextArea } from "../TextArea"
 
+import { IProductProps } from '../Product';
+
 import { 
     Container,
     ModalHeader,
@@ -32,8 +34,12 @@ import {
     FooterFormButtons
  } from "./styles";
 import { UserContext } from '../../context';
+import { Api } from '../../services/api';
+import { useParams } from 'react-router-dom';
 
 const FormAddProduct = () => {
+
+    const { userId } = useParams();
 
     const { formAdProdIsOpen, handleOpenModalAdProd } = useContext(UserContext);
 
@@ -46,7 +52,7 @@ const FormAddProduct = () => {
         kilometers: yup.number().required("Quilometragem é obrigatória").typeError("Informe um valor númerico"),
         price: yup.string().required("O preço é obrigatório"),
         description: yup.string().required("A descrição é obrigatória"),
-        imageCape: yup.string().required("A imagem de capa é obrigatoria."),
+        images: yup.string().required("A imagem de capa é obrigatoria."),
         imageGalery: yup.string().required("A imagem é obrigatória"),
         ad_type: yup.string(),
         vehicle_type: yup.string()
@@ -68,8 +74,16 @@ const FormAddProduct = () => {
 
         data.ad_type =  adType;
         data.vehicle_type = vehicleType;
-        console.log(data)
+        data.user = userId;
+        console.log(data);
+        fetchCreateNewProduct(data)
     } 
+
+    const fetchCreateNewProduct = (data: any) => {
+        Api.post(`/api/products`, data)
+        .then((resp) => console.log(resp.data))
+        .then((_)=> handleOpenModalAdProd())
+    }
 
 
     return(
@@ -203,7 +217,7 @@ const FormAddProduct = () => {
                             Imagem da Capa
                         </CapeImageTitle>
                         <Input 
-                            name="imageCape" 
+                            name="images" 
                             register={ register } 
                             placeholder="Inserir URL da imagem" 
                             required={true} 
