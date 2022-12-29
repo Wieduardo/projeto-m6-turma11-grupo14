@@ -11,10 +11,10 @@ const ListCardAuction = ({ auctions }: IListAuctions) => {
     return (
         <Container>
             <h2>Leilão</h2>
-
+            
             <menu>
                 {
-                    auctions.map((a: any) => <CardAuction auction={ a } key={ a.id } />)
+                    auctions.map((a: IProductProps) => a.ad_type === "auction"  && <CardAuction auction={ a } key={ a.id } />)
                 }
             </menu>
         </Container>
