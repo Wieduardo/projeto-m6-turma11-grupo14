@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 import ReactModal from 'react-modal';
 import { AiOutlineClose } from "react-icons/ai";
@@ -31,10 +31,11 @@ import {
     FirstImageGalery,
     FooterFormButtons
  } from "./styles";
+import { UserContext } from '../../context';
 
 const FormAddProduct = () => {
 
-    const [isOpen, setIsOpen] = useState(true);
+    const { formAdProdIsOpen, handleOpenModalAdProd } = useContext(UserContext);
 
     const [adType, setAdType] = useState("");
     const [vehicleType, setVehicleType] = useState("");
@@ -71,13 +72,10 @@ const FormAddProduct = () => {
     } 
 
 
-
-
-
     return(
         <Container> 
             <ReactModal
-                isOpen={isOpen}
+                isOpen={formAdProdIsOpen}
                 style={{
                     overlay: {
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -90,7 +88,7 @@ const FormAddProduct = () => {
                 <form onSubmit={handleSubmit(onSubmitFunction)}>
                     <ModalHeader>
                         <ModalTitle>Criar Anúncio</ModalTitle>
-                        <ModalCloseButton>
+                        <ModalCloseButton onClick={handleOpenModalAdProd}>
                             <AiOutlineClose 
                             size={17} 
                             color="#ADB5BD"
@@ -229,7 +227,7 @@ const FormAddProduct = () => {
                             type="button" 
                             size="buttonSizeFormAddProductCancel" 
                             color="buttonColorGrayCancelForm" 
-                            onClick={() => setIsOpen(!isOpen)}>
+                            onClick={handleOpenModalAdProd}>
                                 Cancelar
                         </Button>
                         <Button 

@@ -7,7 +7,7 @@ import { useState, useContext } from "react"
 
 import { useNavigate, useParams } from "react-router-dom";
 
-import { UserContext } from "../../context/user";
+import { UserContext } from "../../context";
 import { Profile } from "../Profile"
 
 import { User01 } from "../../Mocks/User"

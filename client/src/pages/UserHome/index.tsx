@@ -28,7 +28,7 @@ interface UserProductsProps {
 
 const UserHome = () => {
 
-    const [userProducts, setUserProducts] = useState<UserProductsProps[]>([]);
+    const [userProducts, setUserProducts] = useState<IProductProps[]>([])
 
     const [ products, setProducts ] = useState<IProductProps[]>([])
 
@@ -52,7 +52,7 @@ const UserHome = () => {
                 <UserCard/>
             </section>
             <ListCardAuction
-            auctions={ auctions }
+            auctions={ userProducts }
             />
             <ListProducts
             listName="Carros"
