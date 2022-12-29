@@ -22,9 +22,6 @@ const Home = () => {
     const fetchUserProducts = () => {
         Api.get(`/api/products`)
         .then((resp) => setProducts(resp.data))
-        // .then((_) => filterAuctions(products))
-        // .then((_) => filterCars(products))
-        // .then((_) => filterMotorcycles(products));
     }
 
     const filterAuctions = (data:IProductProps[]) => {

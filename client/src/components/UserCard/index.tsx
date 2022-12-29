@@ -1,4 +1,8 @@
+import { useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { UserContext } from '../../context';
 import { Button } from '../Button';
+import { FormAddProduct } from '../FormAddProduct';
 
 import {
  Container,
@@ -10,6 +14,15 @@ import {
 } from './styles';
 
 export function UserCard(){
+
+    const { isLoggedin, handleOpenModalAdProd } = useContext(UserContext);
+
+    const { user_id } = useParams();
+
+    const handleOpenEditProductForm = () => {
+        handleOpenModalAdProd()
+    }
+
     return(
         <Container>
             <ProfilePicture src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrh59UXvIbu9gHbxWmUeHtSz2Oe_rCM1iL-g&usqp=CAU"/>
@@ -21,7 +34,8 @@ export function UserCard(){
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
             </UserDescription>
-            <Button size='btnCreateAdUserProfile' color='btnCreateAdUserProfile'>Criar anúncio</Button>
+            <Button type='button' onClick={handleOpenEditProductForm} size='btnCreateAdUserProfile' color='btnCreateAdUserProfile'>Criar anúncio</Button>
+            <FormAddProduct/>
         </Container>
     );
 }
