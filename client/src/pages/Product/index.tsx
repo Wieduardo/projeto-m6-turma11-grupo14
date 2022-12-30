@@ -15,12 +15,13 @@ const ProductPage = () => {
 
     const [product, setProduct] = useState<any>();
 
+    const [isLoading, setIsLoading] = useState<any>(true);
+
     const { productId } = useParams();
 
     const fetchProductData = () => {
-        console.log("rodou")
         Api.get(`/api/products/${productId}`)
-        .then((resp) => setProduct(resp.data)).then(()=> console.log("finalizou"))
+        .then((resp) => setProduct(resp.data)).then(()=> setIsLoading(false))
     }
 
 
@@ -44,6 +45,8 @@ const ProductPage = () => {
 
     return(
         <>
+        {!isLoading &&
+        <>
             <HeaderLogin/>
             <VehiclePhotos product={product}/>                
             <ProductDetails product={product}/> 
@@ -51,6 +54,9 @@ const ProductPage = () => {
             {windowSize.innerWidth < 741 && <AllVehiclePhotos/>}
             <CommentList/>
             <AddComment/>
+        </>
+        }
+            
         </>
     )
 }

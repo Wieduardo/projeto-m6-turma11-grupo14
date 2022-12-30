@@ -11,8 +11,6 @@ import {
 const VehiclePhotos = ({product}:any) => {
     const [windowSize, setWindowSize] = useState(getWindowSize());
 
-    console.log(product);
-
     useEffect(() => {
         function handleWindowResize() {
           setWindowSize(getWindowSize());
@@ -35,7 +33,7 @@ const VehiclePhotos = ({product}:any) => {
             <PrincipalContent>
                 <PrincipalImage src={product.images}/>
             </PrincipalContent>
-            {windowSize.innerWidth >= 800 && <AllVehiclePhotos/>}            
+            {windowSize.innerWidth >= 800 && <AllVehiclePhotos image={product.images}/>}            
         </Container>
     )
 }

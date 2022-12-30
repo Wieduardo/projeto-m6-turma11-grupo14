@@ -26,7 +26,6 @@ export function Profile({img, name}:IProfile){
     const handleLogout = () => {
         handleLogin();
         navigate("/");
-        console.log("tete")
     }
 
     return(
