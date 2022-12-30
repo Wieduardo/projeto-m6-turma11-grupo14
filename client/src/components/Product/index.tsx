@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import { Container } from "./style"
 
 interface IUserProps {
@@ -21,8 +22,14 @@ export interface IProductProps {
 
 const Product = ({product}: any) => {
 
+    const navigate = useNavigate()
+
+    const handleOpenProductDetails = (prod:any) => {
+        navigate(`/product/${prod.id}`);
+    }
+
     return (
-        <Container>
+        <Container onClick={() => handleOpenProductDetails(product)}>
             <img src={ product.images } alt={ product.name } title={ product.name } />
 
             <h4>{ product.name }</h4>
