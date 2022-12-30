@@ -4,6 +4,9 @@ import {
     MenuList,
     MenuItem,
 } from '@chakra-ui/react'
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../context';
 
 interface IProfile {
     img: string,
@@ -16,6 +19,16 @@ import {
 } from './styles';
 
 export function Profile({img, name}:IProfile){
+
+    const { handleLogin } = useContext(UserContext);
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        handleLogin();
+        navigate("/");
+        console.log("tete")
+    }
+
     return(
         <Container>
             <ProfilePicture src={img}/>
@@ -27,7 +40,7 @@ export function Profile({img, name}:IProfile){
                     <MenuItem>Editar Perfil</MenuItem>
                     <MenuItem>Editar endereço</MenuItem>
                     <MenuItem>Meus anúncios</MenuItem>
-                    <MenuItem>Sair</MenuItem>
+                    <MenuItem onClick={() => handleLogout()}>Sair</MenuItem>
                 </MenuList>
                 </Menu>
         </Container>

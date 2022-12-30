@@ -7,7 +7,7 @@ import { UserHome } from "../pages/UserHome";
 export const ScreenRoutes = () => {
     return(
         <Routes>
-            <Route index element={<Home/>}/>            {/*Rota de home*/}
+            <Route path="/" element={<Home/>}/>            {/*Rota de home*/}
             <Route path="/login" element={<Login />}/>  {/*Rota de login*/}
             <Route path="/register" />                  {/*Rota de registro de usuário*/}
             <Route path="/product/:productId" element={<ProductPage/>}/>        {/*Rota de produto*/}
