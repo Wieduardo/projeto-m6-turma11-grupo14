@@ -245,6 +245,21 @@ const Container = styled.button<IButtonStyledProps>`
                     
                 `
             
+            case "btnProductDetailsBlack":
+
+                return css`
+                    border: 1.5px solid var(--grey0);
+                    border-radius: 4px;
+
+                    background: transparent;
+                    padding: 12px 20px;
+                    margin-top: 10px;
+                    
+
+                    color: var(--grey0);
+                    
+                `
+            
             default:
                 return false
         }
