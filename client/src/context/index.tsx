@@ -16,7 +16,8 @@ function UserProvider({ children }:any) {
     const [isLoggedin, setIsLoggedin] = useState(false);  
 
     const [formAdProdIsOpen, setFormAdProdIsOpen] = useState(false);  
-    
+
+
     function handleLogin(){
         setIsLoggedin(!isLoggedin);
     }
@@ -31,7 +32,8 @@ function UserProvider({ children }:any) {
             isLoggedin,
             handleLogin,
             formAdProdIsOpen,
-            handleOpenModalAdProd
+            handleOpenModalAdProd,
+          
         }}
       >
         {children}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AllVehiclePhotos } from "../AllVehiclePhotos";
+import { IProductProps } from "../Product";
 
 import { 
     Container,
@@ -7,8 +8,10 @@ import {
     PrincipalImage,
  } from "./styles";
 
-const VehiclePhotos = () => {
+const VehiclePhotos = ({product}:any) => {
     const [windowSize, setWindowSize] = useState(getWindowSize());
+
+    console.log(product);
 
     useEffect(() => {
         function handleWindowResize() {
@@ -30,7 +33,7 @@ const VehiclePhotos = () => {
     return(
         <Container>
             <PrincipalContent>
-                <PrincipalImage src="https://i0.statig.com.br/bancodeimagens/22/gc/62/22gc622ik51yl5c7abqp7iklk.jpg"/>
+                <PrincipalImage src={product.images}/>
             </PrincipalContent>
             {windowSize.innerWidth >= 800 && <AllVehiclePhotos/>}            
         </Container>

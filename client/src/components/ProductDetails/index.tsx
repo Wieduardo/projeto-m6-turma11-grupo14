@@ -9,27 +9,25 @@ import {
     CarPrice
  } from "./styles";
 
- const ProductDetails = () => {
+ const ProductDetails = ({product}:any) => {
     return(
         <>
             <Container>
                 <PrincipalContent>
                     <Description>
-                        Mercedes Benz A 200 CGI
-                        ADVANCE SEDAN Mercedes
-                        Benz A 200
+                        {product.name}
                     </Description>
                     <Details>
                         <MoreInfos>
                             <CarInfo>
-                                2013
+                            {product.year}
                             </CarInfo>
                             <CarInfo>
-                                0 KM
+                            {product.kilometers} KM
                             </CarInfo>
                         </MoreInfos>
                         <CarPrice>
-                            R$ 00.000,00
+                            R$ {product.price}
                         </CarPrice>
                     </Details>
                     <Button color="buttonColorBlueBy" size="buttonColorBlueBy">
