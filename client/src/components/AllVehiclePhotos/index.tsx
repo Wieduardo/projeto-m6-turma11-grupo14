@@ -4,17 +4,17 @@ import {
     Photo,
  } from "./styles";
 
-const AllVehiclePhotos = () => {
+const AllVehiclePhotos = ({image}:any) => {
     return (
             <SecondaryContent>
                 <h3>Fotos</h3>
                 <ImageSection>
-                    <Photo src="https://i0.statig.com.br/bancodeimagens/22/gc/62/22gc622ik51yl5c7abqp7iklk.jpg"/>
-                    <Photo src="https://i0.statig.com.br/bancodeimagens/22/gc/62/22gc622ik51yl5c7abqp7iklk.jpg"/>
-                    <Photo src="https://i0.statig.com.br/bancodeimagens/22/gc/62/22gc622ik51yl5c7abqp7iklk.jpg"/>
-                    <Photo src="https://i0.statig.com.br/bancodeimagens/22/gc/62/22gc622ik51yl5c7abqp7iklk.jpg"/>
-                    <Photo src="https://i0.statig.com.br/bancodeimagens/22/gc/62/22gc622ik51yl5c7abqp7iklk.jpg"/>
-                    <Photo src="https://i0.statig.com.br/bancodeimagens/22/gc/62/22gc622ik51yl5c7abqp7iklk.jpg"/>
+                    <Photo src={image}/>
+                    <Photo src={image}/>
+                    <Photo src={image}/>
+                    <Photo src={image}/>
+                    <Photo src={image}/>
+                    <Photo src={image}/>
                 </ImageSection>
             </SecondaryContent>
     )

@@ -75,7 +75,6 @@ const FormAddProduct = () => {
         data.ad_type =  adType;
         data.vehicle_type = vehicleType;
         data.user = userId;
-        console.log(data);
         fetchCreateNewProduct(data)
     } 
 
