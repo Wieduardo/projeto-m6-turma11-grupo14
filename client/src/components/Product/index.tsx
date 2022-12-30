@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { Container } from "./style"
 
 interface IUserProps {
@@ -19,8 +19,18 @@ export interface IProductProps {
 }
 
 
+import { User01 } from "../../Mocks/User"
+import { User02 } from "../../Mocks/User"
+import { useContext } from "react"
+import { UserContext } from "../../context"
+import { Button } from "../Button"
+
 
 const Product = ({product}: any) => {
+
+    const { isLoggedin } = useContext(UserContext);
+
+    const { user_id } = useParams();
 
     const navigate = useNavigate()
 
@@ -37,8 +47,8 @@ const Product = ({product}: any) => {
             <p>{ product.description }</p>
 
             <div>
-                <img src="" />
-                {/* <h6>{ product.user.name }</h6> */}
+                <img src={user_id === User01.id ? User01.profilePicture : User02.profilePicture}/>
+                <h6>{ user_id === User01.id ? User01.name : User02.name }</h6>
             </div>
 
             <div className="divKmYearPrice">
@@ -49,6 +59,23 @@ const Product = ({product}: any) => {
 
                 <span>R$ { product.price }</span>
             </div>
+            {isLoggedin && 
+            <div>
+                <Button 
+                    type="button"
+                    onClick={() => {}}
+                    size="btnProductDetails"
+                    color="btnProductDetailsBlack">
+                        Editar
+                </Button>
+                <Button 
+                    onClick={() => {}}
+                    size="btnProductDetails" 
+                    color="btnProductDetailsBlack">
+                        Ver como
+                </Button>
+            </div>
+            }
         </Container>
     )
 }

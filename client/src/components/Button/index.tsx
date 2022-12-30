@@ -7,8 +7,8 @@ interface IButtonProps {
     onClick?: MouseEventHandler
     disabled?: boolean | undefined
     type?: "button" | "submit" | "reset" | undefined
-    size: "buttonSizeLogin" | "buttonSizeHeader" | "buttonSizeBanner" | "buttonSizeFooter" | "buttonSizeForm" | "buttonSizeFormAddProductCancel" | "buttonSizeFormAddProduct" | "buttonColorBlueBy" | "btnCreateAdUserProfile" | "btnEditProductDetails" | "btnProductDetails"
-    color: "buttonColorBlueLogin" | "buttonColorWhiteHeader" | "buttonColorGrayFooter" | "buttonColorBlueBanner" | "buttonColorGrayCancelForm" | "buttonColorBlueCreateAd" | "buttonColorBlueBy" | "btnCreateAdUserProfile" | "btnEditProductDetails"
+    size: "buttonSizeLogin" | "buttonSizeHeader" | "buttonSizeBanner" | "buttonSizeFooter" | "buttonSizeForm" | "buttonSizeFormAddProductCancel" | "buttonSizeFormAddProduct" | "buttonColorBlueBy" | "btnCreateAdUserProfile" | "btnEditProductDetails" | "btnProductDetails" 
+    color: "buttonColorBlueLogin" | "buttonColorWhiteHeader" | "buttonColorGrayFooter" | "buttonColorBlueBanner" | "buttonColorGrayCancelForm" | "buttonColorBlueCreateAd" | "buttonColorBlueBy" | "btnCreateAdUserProfile" | "btnEditProductDetails" | "btnProductDetailsBlack"
 }
 
 const Button = ({ children, size, color, disabled, onClick, type }: IButtonProps) => {

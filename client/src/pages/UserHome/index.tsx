@@ -56,11 +56,11 @@ const UserHome = () => {
             />
             <ListProducts
             listName="Carros"
-            products={ products }
+            products={ userProducts }
             />
             <ListProducts
             listName="Motos"
-            products={ products }
+            products={ userProducts }
             />
             <FooterLogin />
         </Container>
