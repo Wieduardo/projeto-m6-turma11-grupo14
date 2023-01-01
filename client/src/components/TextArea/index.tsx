@@ -10,13 +10,14 @@ export interface InputProps {
     required?: boolean | undefined
     onChange?: any
     size?: "textAreaCommentSize"
+    defaultValue?: any
 }
-const TextArea = ({ name, register, error, label, placeholder, required, onChange, size}: InputProps) => {
+const TextArea = ({ name, register, error, label, placeholder, required, onChange, size, defaultValue}: InputProps) => {
     return (
         <Container>
             <label>{ label } { !!error && <span> - { error }</span> }</label>
 
-            <TextAreaContainer  { ...register(name) } placeholder={ placeholder } required={ required } onChange={ onChange } size={size}/>
+            <TextAreaContainer defaultValue={defaultValue}  { ...register(name) } placeholder={ placeholder } required={ required } onChange={ onChange } size={size}/>
         </Container>
     )
 }

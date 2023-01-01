@@ -24,11 +24,12 @@ import { User02 } from "../../Mocks/User"
 import { useContext } from "react"
 import { UserContext } from "../../context"
 import { Button } from "../Button"
+import { Api } from "../../services/api"
 
 
 const Product = ({product}: any) => {
 
-    const { isLoggedin } = useContext(UserContext);
+    const { isLoggedin, handleOpenEditDeleteProdModal, formEditDeleteProdIsOpen, handleProdIdToEditDelete, handleProd } = useContext(UserContext);
 
     const { user_id } = useParams();
 
@@ -38,9 +39,19 @@ const Product = ({product}: any) => {
         navigate(`/product/${prod.id}`);
     }
 
+    const handleOpenModalEditDeleteProd = (id: string) =>{
+        Api.get(`/api/products/${id}`)
+        .then((resp)=> handleProd(resp.data))
+        handleOpenEditDeleteProdModal();
+        handleProdIdToEditDelete(id)
+    }
+
+  
+
+
     return (
-        <Container onClick={() => handleOpenProductDetails(product)}>
-            <img src={ product.images } alt={ product.name } title={ product.name } />
+        <Container>
+            <img onClick={() => handleOpenProductDetails(product)} src={ product.images } alt={ product.name } title={ product.name } />
 
             <h4>{ product.name }</h4>
 
@@ -62,8 +73,8 @@ const Product = ({product}: any) => {
             {isLoggedin && 
             <div>
                 <Button 
-                    type="button"
-                    onClick={() => {}}
+                    type='button'
+                    onClick={() => handleOpenModalEditDeleteProd(product.id)}
                     size="btnProductDetails"
                     color="btnProductDetailsBlack">
                         Editar

@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 
 import ReactModal from 'react-modal';
 import { AiOutlineClose } from "react-icons/ai";
@@ -10,7 +10,6 @@ import { Button } from '../Button';
 import { Input } from '../Input';
 import { TextArea } from "../TextArea"
 
-import { IProductProps } from '../Product';
 
 import { 
     Container,
@@ -33,29 +32,30 @@ import {
     FirstImageGalery,
     FooterFormButtons
  } from "./styles";
+
 import { UserContext } from '../../context';
 import { Api } from '../../services/api';
 import { useParams } from 'react-router-dom';
 
-const FormAddProduct = () => {
+const FormEditDeleteProduct = () => {
 
     const { userId } = useParams();
 
-    const { formAdProdIsOpen, handleOpenModalAdProd, isLoggedin, addProduct, handleFormAddProduct } = useContext(UserContext);
+    const { formEditDeleteProdIsOpen, handleOpenEditDeleteProdModal, isLoggedin, addProduct, handleFormAddProduct, editDeleteProdId, prod } = useContext(UserContext);
 
     const [adType, setAdType] = useState("");
     const [vehicleType, setVehicleType] = useState("");
 
     const schema = yup.object().shape({
-        name: yup.string().required("Título é obrigatório"),
-        year: yup.number().required("Ano é obrigatório").typeError("Informe um valor númerico"),
-        kilometers: yup.number().required("Quilometragem é obrigatória").typeError("Informe um valor númerico"),
-        price: yup.string().required("O preço é obrigatório"),
-        description: yup.string().required("A descrição é obrigatória"),
-        images: yup.string().required("A imagem de capa é obrigatoria."),
-        imageGalery: yup.string().required("A imagem é obrigatória"),
-        ad_type: yup.string(),
-        vehicle_type: yup.string()
+        // name: yup.string().required("Título é obrigatório"),
+        // year: yup.number().required("Ano é obrigatório").typeError("Informe um valor númerico"),
+        // kilometers: yup.number().required("Quilometragem é obrigatória").typeError("Informe um valor númerico"),
+        // price: yup.string().required("O preço é obrigatório"),
+        // description: yup.string().required("A descrição é obrigatória"),
+        // images: yup.string().required("A imagem de capa é obrigatoria."),
+        // imageGalery: yup.string().required("A imagem é obrigatória"),
+        // ad_type: yup.string(),
+        // vehicle_type: yup.string()
     })
 
     const { register, handleSubmit, formState: { errors } } = useForm({
@@ -75,25 +75,30 @@ const FormAddProduct = () => {
         data.ad_type =  adType;
         data.vehicle_type = vehicleType;
         data.user = userId;
-        fetchCreateNewProduct(data)
+        fetchEditProduct(data)
     } 
 
-    const fetchCreateNewProduct = (data: any) => {
-        Api.post(`/api/products`, data)
+    const fetchEditProduct = (data: any) => {
+        Api.patch(`/api/products/${editDeleteProdId}`, data)
         .then((resp) => console.log(resp.data))
-        .then((_)=> handleOpenModalAdProd())
+        .then((_)=> handleOpenEditDeleteProdModal())
     }
 
     const functionCloseModal = () => {
-        handleOpenModalAdProd()
-        handleFormAddProduct()
+        handleOpenEditDeleteProdModal()
     }
 
+    const handleDeleteProduct = () => {
+        Api.delete(`/api/products/${editDeleteProdId}`)
+        .then((resp) => console.log(resp.data))
+        .then((resp) => functionCloseModal());
+    }
 
     return(
-        <Container> 
+         
+            <Container> 
             <ReactModal
-                isOpen={formAdProdIsOpen}
+                isOpen={formEditDeleteProdIsOpen}
                 style={{
                     overlay: {
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -144,6 +149,7 @@ const FormAddProduct = () => {
                             required={true} 
                             size="inputSize100%" 
                             error={errors.titulo?.message }
+                            defaultValue={prod.name}
                         />
                         <VehicleDetailsSection>
                             <Details>
@@ -157,6 +163,7 @@ const FormAddProduct = () => {
                                     required={true} 
                                     size="inputSizeSecondary" 
                                     error={errors.year?.message }
+                                    defaultValue={prod.year}
                                 />
                             </Details>
                             <Details>
@@ -169,6 +176,7 @@ const FormAddProduct = () => {
                                     required={true} 
                                     size="inputSizeSecondary" 
                                     error={errors.kilometers?.message }
+                                    defaultValue={prod.kilometers}
                                 />
                             </Details>
                             <Details>
@@ -182,6 +190,7 @@ const FormAddProduct = () => {
                                     required={true} 
                                     size="inputSizeSecondary" 
                                     error={errors.price?.message }
+                                    defaultValue={prod.price}
                                 />
                             </Details>
                         </VehicleDetailsSection>
@@ -195,6 +204,7 @@ const FormAddProduct = () => {
                                     name="description" 
                                     register={ register } 
                                     error={errors.description?.message }
+                                    defaultValue={prod.description}
                                 />
                             </TextAreaSection>
                         </VehicleDescriptionSection>
@@ -227,6 +237,7 @@ const FormAddProduct = () => {
                             required={true} 
                             size="inputSize100%" 
                             error={errors.imageCape?.message }
+                            defaultValue={prod.images}
                         />
                         <FirstImageGalery>
                             1ª imagem da galeria
@@ -238,20 +249,20 @@ const FormAddProduct = () => {
                             required={true} 
                             size="inputSize100%" 
                             error={errors.imageGalery?.message }
+                            defaultValue={prod.images}
                         />
                     </VehicleImageSection>
                     <FooterFormButtons>
                         <Button 
-                            type="button" 
                             size="buttonSizeFormAddProductCancel" 
                             color="buttonColorGrayCancelForm" 
-                            onClick={functionCloseModal}>
-                                Cancelar
+                            onClick={() => handleDeleteProduct()}>
+                                Excluir produto
                         </Button>
                         <Button 
                             size="buttonSizeFormAddProduct" 
                             color="buttonColorBlueCreateAd">
-                                Criar Anúncio
+                                Editar Anúncio
                         </Button>
                     </FooterFormButtons>
                 </form>
@@ -260,4 +271,4 @@ const FormAddProduct = () => {
     );
 }
 
-export { FormAddProduct };
+export { FormEditDeleteProduct };
