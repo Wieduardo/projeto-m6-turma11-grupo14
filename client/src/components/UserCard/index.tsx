@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { UserContext } from '../../context';
 import { Button } from '../Button';
 import { FormAddProduct } from '../FormAddProduct';
+import { FormEditDeleteProduct } from '../FormEditDeleteProduct';
 
 import {
  Container,
@@ -15,7 +16,7 @@ import {
 
 export function UserCard(){
 
-    const { isLoggedin, handleOpenModalAdProd } = useContext(UserContext);
+    const { isLoggedin, handleOpenModalAdProd, handleFormAddProduct } = useContext(UserContext);
 
     const { user_id } = useParams();
 
@@ -36,6 +37,7 @@ export function UserCard(){
             </UserDescription>
             <Button type='button' onClick={handleOpenEditProductForm} size='btnCreateAdUserProfile' color='btnCreateAdUserProfile'>Criar anúncio</Button>
             <FormAddProduct/>
+            <FormEditDeleteProduct/>
         </Container>
     );
 }

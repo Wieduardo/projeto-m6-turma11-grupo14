@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { Api } from "../../services/api";
 
 import {
@@ -27,6 +27,8 @@ interface UserProductsProps {
 }
 
 const UserHome = () => {
+
+    
 
     const [userProducts, setUserProducts] = useState<IProductProps[]>([])
 

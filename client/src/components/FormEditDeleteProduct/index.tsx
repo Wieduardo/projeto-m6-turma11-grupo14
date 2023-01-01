@@ -37,11 +37,11 @@ import { UserContext } from '../../context';
 import { Api } from '../../services/api';
 import { useParams } from 'react-router-dom';
 
-const FormAddProduct = () => {
+const FormEditDeleteProduct = () => {
 
     const { userId } = useParams();
 
-    const { formAdProdIsOpen, handleOpenModalAdProd, isLoggedin, addProduct, handleFormAddProduct } = useContext(UserContext);
+    const { formEditDeleteProdIsOpen, handleOpenEditDeleteProdModal, isLoggedin, addProduct, handleFormAddProduct, editDeleteProdId } = useContext(UserContext);
 
     const [adType, setAdType] = useState("");
     const [vehicleType, setVehicleType] = useState("");
@@ -81,19 +81,23 @@ const FormAddProduct = () => {
     const fetchCreateNewProduct = (data: any) => {
         Api.post(`/api/products`, data)
         .then((resp) => console.log(resp.data))
-        .then((_)=> handleOpenModalAdProd())
+        .then((_)=> handleOpenEditDeleteProdModal())
     }
 
     const functionCloseModal = () => {
-        handleOpenModalAdProd()
-        handleFormAddProduct()
+        handleOpenEditDeleteProdModal()
     }
 
+    const handleDeleteProduct = () => {
+        Api.delete(`/api/products/${editDeleteProdId}`)
+        .then((resp) => console.log(resp.data))
+        .then((resp) => functionCloseModal());
+    }
 
     return(
         <Container> 
             <ReactModal
-                isOpen={formAdProdIsOpen}
+                isOpen={formEditDeleteProdIsOpen}
                 style={{
                     overlay: {
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -245,8 +249,8 @@ const FormAddProduct = () => {
                             type="button" 
                             size="buttonSizeFormAddProductCancel" 
                             color="buttonColorGrayCancelForm" 
-                            onClick={functionCloseModal}>
-                                Cancelar
+                            onClick={() => handleDeleteProduct()}>
+                                Excluir produto
                         </Button>
                         <Button 
                             size="buttonSizeFormAddProduct" 
@@ -260,4 +264,4 @@ const FormAddProduct = () => {
     );
 }
 
-export { FormAddProduct };
+export { FormEditDeleteProduct };
