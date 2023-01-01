@@ -24,11 +24,12 @@ import { User02 } from "../../Mocks/User"
 import { useContext } from "react"
 import { UserContext } from "../../context"
 import { Button } from "../Button"
+import { Api } from "../../services/api"
 
 
 const Product = ({product}: any) => {
 
-    const { isLoggedin, handleOpenEditDeleteProdModal, formEditDeleteProdIsOpen, handleProdIdToEditDelete } = useContext(UserContext);
+    const { isLoggedin, handleOpenEditDeleteProdModal, formEditDeleteProdIsOpen, handleProdIdToEditDelete, handleProd } = useContext(UserContext);
 
     const { user_id } = useParams();
 
@@ -39,9 +40,13 @@ const Product = ({product}: any) => {
     }
 
     const handleOpenModalEditDeleteProd = (id: string) =>{
+        Api.get(`/api/products/${id}`)
+        .then((resp)=> handleProd(resp.data))
         handleOpenEditDeleteProdModal();
         handleProdIdToEditDelete(id)
     }
+
+  
 
 
     return (

@@ -12,6 +12,8 @@ interface UserContextProps {
     handleOpenEditDeleteProdModal: () => void;
     editDeleteProdId: string;
     handleProdIdToEditDelete: (id:string) => void;
+    prod: any;
+    handleProd: (data:any) => void
 }
 
 export const UserContext = createContext({} as UserContextProps);
@@ -28,6 +30,12 @@ function UserProvider({ children }:any) {
     const [formEditDeleteProdIsOpen, setFormEditDeleteProdIsOpen] = useState(false);  
 
     const [editDeleteProdId, setEditDeleteProdId] = useState<string>("");
+
+    const [prod, setProd] = useState({});
+
+    function handleProd(data:any){
+      setProd(data)
+    }
 
 
     function handleLogin(){
@@ -62,7 +70,9 @@ function UserProvider({ children }:any) {
             formEditDeleteProdIsOpen,
             handleOpenEditDeleteProdModal,
             editDeleteProdId,
-            handleProdIdToEditDelete
+            handleProdIdToEditDelete,
+            prod,
+            handleProd
         }}
       >
         {children}
