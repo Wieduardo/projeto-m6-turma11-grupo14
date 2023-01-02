@@ -1,13 +1,11 @@
-import { ScreenRoutes } from "./routes"
-
+import { ScreenRoutes } from "./routes";
 
 function App() {
-
   return (
     <div className="App">
-      <ScreenRoutes/>
+      <ScreenRoutes />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
