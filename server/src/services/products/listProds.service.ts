@@ -1,5 +1,5 @@
 import AppDataSource from '../../data-source'
-import { Product } from '../../entities/products.entities'
+import { Product } from '../../entities/products.entity'
 
 const listProdService = async () =>{
 

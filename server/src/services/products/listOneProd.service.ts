@@ -1,5 +1,5 @@
 import AppDataSource from '../../data-source'
-import { Product } from '../../entities/products.entities'
+import { Product } from '../../entities/products.entity'
 import { AppError } from '../../errors/appError'
 import { IProductId } from '../../interfaces/products.interfaces'
 

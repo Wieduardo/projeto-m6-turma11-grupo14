@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
+import { User } from './user.entity'
 
 @Entity('products')
 class Product{
@@ -24,8 +25,10 @@ class Product{
     @Column()
     price: string
 
-    @Column()
-    user: string
+    @ManyToOne(() => User, (User) => User.products, {
+		onDelete: "SET NULL",
+	})
+    user: User
 
     @Column({nullable: true})
     comments: string

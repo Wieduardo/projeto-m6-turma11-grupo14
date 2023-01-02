@@ -1,5 +1,6 @@
 import AppDataSource from "../../data-source";
-import { Product } from "../../entities/products.entities";
+import { Product } from "../../entities/products.entity";
+import { User } from "../../entities/user.entity";
 import { IProductRequest } from "../../interfaces/products.interfaces";
 
 const createProdService = async ({
@@ -14,6 +15,12 @@ const createProdService = async ({
     images}: IProductRequest) =>{
 
     const productsRepository = AppDataSource.getRepository(Product);
+    const usersRepository= AppDataSource.getRepository(User);
+
+    const usuario = await usersRepository.findOneBy({
+        id: user
+    })
+
 
 	const product = productsRepository.create({
         name,
@@ -22,9 +29,10 @@ const createProdService = async ({
         kilometers,
         ad_type,
         price,
-        user,
+        user: usuario!,
         vehicle_type,
-        images});
+        images,
+    });
         
 	await productsRepository.save(product);
 
