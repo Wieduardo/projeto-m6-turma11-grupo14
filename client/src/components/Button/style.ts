@@ -107,6 +107,11 @@ const Container = styled.button<IButtonStyledProps>`
                     font-size: 14px;
                     margin-left: 25px;
                 `
+            case "buttonSizeCardSeller":
+                return css`
+                    height: 48px;
+                    max-width: 206px;
+                `
 
             default:
                 return false
@@ -258,6 +263,23 @@ const Container = styled.button<IButtonStyledProps>`
 
                     color: var(--grey0);
                     
+                `
+
+            case "buttonColorBlackCardSeller":
+                return css`
+                    background: #0B0D0D;
+                    border: 1.5px solid #0B0D0D;
+                    border-radius: 4px;
+                    
+                    padding: 12px 28px;
+                    font-weight: 600;
+                    font-size: 15px;
+                    color: #FFF;
+
+                    :hover {
+                        border-color: #536060;
+                        background: #536060;
+                    }
                 `
             
             default:

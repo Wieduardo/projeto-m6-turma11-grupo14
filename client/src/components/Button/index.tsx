@@ -7,9 +7,9 @@ interface IButtonProps {
     onClick?: MouseEventHandler
     disabled?: boolean | undefined
     type?: "button" | "submit" | "reset" | undefined
-    size: "buttonSizeLogin" | "buttonSizeHeader" | "buttonSizeBanner" | "buttonSizeFooter" | "buttonSizeForm" | "buttonSizeFormAddProductCancel" | "buttonSizeFormAddProduct" | "buttonColorBlueBy" | "btnCreateAdUserProfile" | "btnEditProductDetails" | "btnProductDetails" 
-    color: "buttonColorBlueLogin" | "buttonColorWhiteHeader" | "buttonColorGrayFooter" | "buttonColorBlueBanner" | "buttonColorGrayCancelForm" | "buttonColorBlueCreateAd" | "buttonColorBlueBy" | "btnCreateAdUserProfile" | "btnEditProductDetails" | "btnProductDetailsBlack"
-}
+    size: "buttonSizeLogin" | "buttonSizeHeader" | "buttonSizeBanner" | "buttonSizeFooter" | "buttonSizeForm" | "buttonSizeFormAddProductCancel" | "buttonSizeFormAddProduct" | "buttonColorBlueBy" | "btnCreateAdUserProfile" | "btnEditProductDetails" | "btnProductDetails"  | "buttonSizeCardSeller"
+    color: "buttonColorBlueLogin" | "buttonColorWhiteHeader" | "buttonColorGrayFooter" | "buttonColorBlueBanner" | "buttonColorGrayCancelForm" | "buttonColorBlueCreateAd" | "buttonColorBlueBy" | "btnCreateAdUserProfile" | "btnEditProductDetails" | "btnProductDetailsBlack" | "buttonColorBlackCardSeller"
+} 
 
 const Button = ({ children, size, color, disabled, onClick, type }: IButtonProps) => {
 
