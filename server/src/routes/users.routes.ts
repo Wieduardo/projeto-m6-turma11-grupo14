@@ -1,12 +1,12 @@
 import { Router } from 'express'
-import { createUserController } from '../controllers/users.controllers'
+import { createUserController, deleteUserController } from '../controllers/users.controllers'
 
 const userRoutes = Router()
 
 userRoutes.post('', createUserController)
 userRoutes.get('')
 userRoutes.patch('')
-userRoutes.delete('')
+userRoutes.delete('/:id', deleteUserController)
 userRoutes.post('/login')
 userRoutes.get('/user')
 
