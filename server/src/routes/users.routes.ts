@@ -1,11 +1,11 @@
 import { Router } from 'express'
-import { createUserController, deleteUserController, getUsersController } from '../controllers/users.controllers'
+import { createUserController, deleteUserController, getUsersController, updateUserController } from '../controllers/users.controllers'
 
 const userRoutes = Router()
 
 userRoutes.post('', createUserController)
 userRoutes.get('', getUsersController)
-userRoutes.patch('')
+userRoutes.patch('/:id', updateUserController)
 userRoutes.delete('/:id', deleteUserController)
 userRoutes.post('/login')
 userRoutes.get('/user')
