@@ -3,6 +3,7 @@ import { instanceToPlain } from "class-transformer";
 import { IUserRequest } from "../interfaces/users.interfaces";
 import createUserService from "../services/users/createuser.service";
 import deleteUserService from "../services/users/deleteUser.service";
+import listUsersService from "../services/users/getUsers.service";
 
 
 const createUserController = async (req: Request, res: Response) => {
@@ -17,8 +18,9 @@ const deleteUserController = async (req: Request, res: Response) => {
 	return res.status(204).json("");
 }
 
-const getUserController = async (req: Request, res: Response) => {
-
+const getUsersController = async (req: Request, res: Response) => {
+	const user = await listUsersService();
+	return res.json(instanceToPlain(user));
 };
 
-export { createUserController, getUserController, deleteUserController }
+export { createUserController, getUsersController, deleteUserController }
