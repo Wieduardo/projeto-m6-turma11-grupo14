@@ -1,4 +1,4 @@
-import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, OneToMany} from 'typeorm'
+import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn,OneToMany} from 'typeorm'
 import { Product } from './products.entity'
 
 @Entity('users')
@@ -7,26 +7,46 @@ class User{
     @PrimaryGeneratedColumn('uuid')
     id: string
 
-    @Column({ unique: true })
+    @Column()
     name: string
+
+    @Column({ unique: true })
+    email: string
 
     @Column({ length: 120})
     password: string
 
-    @Column({unique: true})
-    email: string
+    @Column()
+    cellphone: string
 
     @Column()
-    phone: string
+    address: string
 
-    @OneToMany((type) => Product, (Product) => Product.user,{
-        onDelete: "SET NULL",
-        nullable: true 
+    @Column()
+    cpf: string
+
+    @Column()
+    birthdate: string
+
+    @Column()
+    is_seller: boolean
+
+    @CreateDateColumn({ name:"date_joined"})
+    date_joined: Date
+
+    @UpdateDateColumn({ name: "updated_at"})
+    updated_at: Date
+
+    @OneToMany(() => Product, (Product) => Product.user,{
+        onDelete: "SET NULL"
     })
     products: Product[]
 
-    @CreateDateColumn()
-    createdAt: Date
+    @Column({nullable: true})
+    comments: string
+
+    @Column({nullable: true})
+    bids: string
 
 }
 
