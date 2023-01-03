@@ -8,6 +8,32 @@ interface IUserRequest {
     birthdate: string,
     is_seller: boolean
 }
+
+interface IUserUpdate {
+    id: string,
+    name?: string,
+    password?: string,
+    cellphone?: string,
+    address?: string,
+    cpf?: string,
+    birthdate?: string,
+    isActive?: boolean,
+    is_seller?: boolean
+}
+
+interface IUserUpdate {
+    id: string,
+    name?: string,
+    email?: string,
+    password?: string,
+    cellphone?: string,
+    address?: string,
+    cpf?: string,
+    birthdate?: string,
+    isActive?: boolean,
+    is_seller?: boolean
+}
+
 interface IUser {
     id: string,
     name: string,
@@ -30,4 +56,4 @@ interface IUserId {
     id: string
 }
 
-export {IUser, IUserId ,IUserRequest}
+export {IUser, IUserId ,IUserRequest, IUserUpdate}
