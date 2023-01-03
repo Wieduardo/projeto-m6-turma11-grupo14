@@ -18,6 +18,7 @@ interface IUser {
     cpf: string,
     birthdate: string,
     is_seller: boolean,
+	isActive: boolean,
     date_joined: Date,
     updated_at: Date,
     products: string,
@@ -25,4 +26,8 @@ interface IUser {
     bids: string
 }
 
-export {IUser, IUserRequest}
+interface IUserId {
+    id: string
+}
+
+export {IUser, IUserId ,IUserRequest}

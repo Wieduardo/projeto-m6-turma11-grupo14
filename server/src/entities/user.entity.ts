@@ -31,6 +31,9 @@ class User{
     @Column()
     is_seller: boolean
 
+    @Column({ default: true })
+	isActive: boolean;
+
     @CreateDateColumn({ name:"date_joined"})
     date_joined: Date
 
