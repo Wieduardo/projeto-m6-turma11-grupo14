@@ -25,9 +25,7 @@ class Product{
     @Column()
     price: string
 
-    @ManyToOne(() => User, (User) => User.products, {
-		onDelete: "SET NULL",
-	})
+    @ManyToOne(() => User, (User) => User.products)
     user: User
 
     @Column({nullable: true})
