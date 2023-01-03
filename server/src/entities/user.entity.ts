@@ -1,4 +1,5 @@
 import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn,OneToMany} from 'typeorm'
+import { Comment } from './comment.entity'
 import { Product } from './products.entity'
 
 @Entity('users')
@@ -45,8 +46,8 @@ class User{
     })
     products: Product[]
 
-    @Column({nullable: true})
-    comments: string
+    @OneToMany(() => Comment, (Comment) => Comment.user,{onDelete: "SET NULL"})
+    comments: Comment[]
 
     @Column({nullable: true})
     bids: string

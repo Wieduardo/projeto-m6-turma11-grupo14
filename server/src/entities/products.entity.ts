@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm'
+import { Comment } from './comment.entity'
 import { User } from './user.entity'
 
 @Entity('products')
@@ -28,8 +29,8 @@ class Product{
     @ManyToOne(() => User, (User) => User.products)
     user: User
 
-    @Column({nullable: true})
-    comments: string
+    @OneToMany(() => Comment, (Comment) => Comment.product,{onDelete: "SET NULL"})
+    comments: Comment[]
 
     @Column()
     vehicle_type: string
