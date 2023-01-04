@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
 import { instanceToPlain } from "class-transformer";
-import { IUserRequest, IUserUpdate } from "../interfaces/users.interfaces";
+import { IUserLogin, IUserRequest, IUserUpdate } from "../interfaces/users.interfaces";
 import createUserService from "../services/users/createuser.service";
 import deleteUserService from "../services/users/deleteUser.service";
 import listUsersService from "../services/users/getUsers.service";
 import { updateUsersService } from "../services/users/updateUser.service";
+import loginUserService from "../services/users/loginUser.service";
 
 
 const createUserController = async (req: Request, res: Response) => {
@@ -34,4 +35,11 @@ const updateUserController = async (req: Request, res:Response) => {
 	return res.status(200).json(user);
 }
 
-export { createUserController, getUsersController, deleteUserController, updateUserController }
+const loginUserController = async (req: Request, res: Response) => {
+	const { email, password }: IUserLogin = req.body;
+	const token = await loginUserService({email, password});
+	return res.status(200).json(token);
+};
+
+
+export { createUserController, getUsersController, deleteUserController, updateUserController, loginUserController }
