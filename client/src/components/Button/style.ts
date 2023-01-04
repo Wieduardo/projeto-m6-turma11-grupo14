@@ -107,6 +107,11 @@ const Container = styled.button<IButtonStyledProps>`
                     font-size: 14px;
                     margin-left: 25px;
                 `
+            case "buttonSizeSignUp":
+                return css`
+                    height: 48px;
+                    max-width: 152px;
+                `
 
             default:
                 return false
@@ -258,6 +263,19 @@ const Container = styled.button<IButtonStyledProps>`
 
                     color: var(--grey0);
                     
+                `
+            case "buttonColorWhiteSignUp":
+                
+                return css`
+                    background-color: #FDFDFD;
+                    border: 1.5px solid #ADB5BD;
+                    color: #0B0D0D;
+                    padding: 12px 28px;
+                    :hover {
+                        border-color: #4529E6;
+                        background-color: #4529E6;
+                        color: #FDFDFD;
+                    }
                 `
             
             default:
