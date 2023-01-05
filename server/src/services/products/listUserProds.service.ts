@@ -1,8 +1,8 @@
 import AppDataSource from '../../data-source'
-import { Product } from '../../entities/products.entities'
+import { Product } from '../../entities/products.entity'
 import { AppError } from '../../errors/appError'
 
-const listUserProductsService = async (user_id: string) => {
+const listUserProductsService = async (user_id: any) => {
     
     const prodRepository = AppDataSource.getRepository(Product)
 
