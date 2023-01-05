@@ -25,6 +25,7 @@ export const TextAreaContainer = styled.textarea<ITextAreaStyledProps>`
     height: 90px;
 
     padding: 15px;
+    resize: none;
 
     border: 2px solid var(--grey7);
     border-radius: 4px;
@@ -40,6 +41,10 @@ export const TextAreaContainer = styled.textarea<ITextAreaStyledProps>`
 
     &:hover {
         border-color: var(--grey0);
+    }
+    
+    &:focus::-webkit-input-placeholder {
+      color: transparent;
     }
 
     ${({ size }) => {
