@@ -81,6 +81,12 @@ const InputContainer = styled.input<IInputStyledProps>`
                     max-width: 315px;
                     height: 48px;
                 `
+            
+            case "inputModalEditProfile":
+                return css`
+                    max-width: 466px;
+                    height: 48px;
+                `
 
             default:
                 return false

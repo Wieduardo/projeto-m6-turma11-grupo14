@@ -126,6 +126,18 @@ const Container = styled.button<IButtonStyledProps>`
                     max-width: 132px;
                 `
 
+            case "buttonSizeModaProfileMedium":
+                return css`
+                    height: 48px;
+                    max-width: 193px;
+                `
+
+            case "buttonSizeModalEditProfileSmall":
+                return css`
+                    height: 48px;
+                    max-width: 126px;
+                `
+
             default:
                 return false
         }
@@ -311,6 +323,21 @@ const Container = styled.button<IButtonStyledProps>`
                       }
                 `
             
+            case "buttonColorGrayModalEditProfile":
+                return css`
+                    background: #DEE2E6;
+                    border: 1.5px solid #DEE2E6;
+                    border-radius: 4px;
+                    
+                    padding: 12px 28px;
+                    font-weight: 600;
+                    font-size: 16px;
+                    color: #495057;
+                    :hover {
+                        background-color: #edf4fb;
+                    }
+                `
+
             default:
                 return false
         }

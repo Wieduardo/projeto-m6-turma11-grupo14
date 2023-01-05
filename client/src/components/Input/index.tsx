@@ -11,18 +11,19 @@ export interface InputProps {
     error?: any
     required?: boolean | undefined
     onChange?: any
-    size?: "inputSize100%" | "inputSizeSecondary" | "inputCommentSize" | "inputSignUp" | "inputSignIn"
+    size?: "inputSize100%" | "inputSizeSecondary" | "inputCommentSize" | "inputSignUp" | "inputSignIn" | "inputModalEditProfile"
     defaultValue?: any
     className?: any
+    value?: any
 }
 
-const Input = ({ type, name, register, autoComplete, error, label, placeholder, required, onChange, size, defaultValue,className }: InputProps) => {
+const Input = ({ type, name, register, autoComplete, error, label, placeholder, required, onChange, size, defaultValue, className, value }: InputProps) => {
 
     return (
         <Container>
             <label>{ label } { !!error && <span> - { error }</span> }</label>
 
-            <InputContainer defaultValue={defaultValue} type={ type } { ...register(name) } autoComplete={ autoComplete } placeholder={ placeholder } required={ required } onChange={ onChange } size={ size } className={ className } />
+            <InputContainer defaultValue={defaultValue} type={ type } { ...register(name) } autoComplete={ autoComplete } placeholder={ placeholder } required={ required } onChange={ onChange } size={ size } className={ className } value={ value } />
         </Container>
     )
 }
