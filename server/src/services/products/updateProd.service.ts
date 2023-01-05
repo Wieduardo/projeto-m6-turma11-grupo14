@@ -1,6 +1,6 @@
 import AppDataSource from '../../data-source'
 import { AppError } from '../../errors/appError'
-import { Product } from '../../entities/products.entities'
+import { Product } from '../../entities/products.entity'
 import { IProductPatch } from '../../interfaces/products.interfaces'
 
 const patchProdService = async ({

@@ -70,7 +70,17 @@ const InputContainer = styled.input<IInputStyledProps>`
                     height: 128px;
                     width: 284px;
                 `
-
+            case "inputSignUp":
+                return css`
+                    max-width: 152px;
+                    height: 48px;
+                `
+                
+            case "inputSignIn":
+                return css`
+                    max-width: 315px;
+                    height: 48px;
+                `
 
             default:
                 return false
