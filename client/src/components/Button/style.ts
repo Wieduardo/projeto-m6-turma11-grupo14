@@ -107,7 +107,7 @@ const Container = styled.button<IButtonStyledProps>`
                     font-size: 14px;
                     margin-left: 25px;
                 `
-                
+              
             case "buttonSizeCardSeller":
                 return css`
                     height: 48px;
@@ -118,6 +118,12 @@ const Container = styled.button<IButtonStyledProps>`
                 return css`
                     height: 48px;
                     max-width: 152px;
+                `
+
+             case "buttonSizeSuccessModal":
+                return css`
+                    height: 38px;
+                    max-width: 132px;
                 `
 
             default:
