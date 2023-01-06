@@ -1,7 +1,7 @@
 import { instanceToPlain } from "class-transformer";
 import { Request, Response } from "express";
 import createCommentService from "../services/comments/createcomment.service"
-import deleteCommentService from "../services/comments/deletecomment.service";
+import deleteCommentService from "../services/comments/deleteComment.service";
 import updateCommentService from "../services/comments/updateComment.service";
 
 const createCommentController = async ( req: Request, res: Response) =>{
@@ -17,7 +17,7 @@ const deleteCommentController = async (req: Request, res: Response) =>{
     return res.status(204).json("");
 }
 
-const updateCommenteController = async (req: Request, res: Response) => {
+const updateCommentController = async (req: Request, res: Response) => {
     const {id} = req.params
     const {content} = req.body
 
@@ -26,4 +26,4 @@ const updateCommenteController = async (req: Request, res: Response) => {
     return res.status(200).json(comment)
 }
 
-export {createCommentController, deleteCommentController, updateCommenteController}
+export {createCommentController, deleteCommentController, updateCommentController}
