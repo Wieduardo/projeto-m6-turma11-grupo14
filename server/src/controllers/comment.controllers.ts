@@ -1,7 +1,7 @@
 import { instanceToPlain } from "class-transformer";
 import { Request, Response } from "express";
 import createCommentService from "../services/comments/createcomment.service"
-import deleteCommentService from "../services/comments/deletecomment.service";
+import deleteCommentService from "../services/comments/deleteComment.service";
 
 const createCommentController = async ( req: Request, res: Response) =>{
 
