@@ -107,6 +107,36 @@ const Container = styled.button<IButtonStyledProps>`
                     font-size: 14px;
                     margin-left: 25px;
                 `
+              
+            case "buttonSizeCardSeller":
+                return css`
+                    height: 48px;
+                    max-width: 206px;
+                `
+                
+            case "buttonSizeSignUp":
+                return css`
+                    height: 48px;
+                    max-width: 152px;
+                `
+
+             case "buttonSizeSuccessModal":
+                return css`
+                    height: 38px;
+                    max-width: 132px;
+                `
+
+            case "buttonSizeModaProfileMedium":
+                return css`
+                    height: 48px;
+                    max-width: 193px;
+                `
+
+            case "buttonSizeModalEditProfileSmall":
+                return css`
+                    height: 48px;
+                    max-width: 126px;
+                `
 
             default:
                 return false
@@ -259,7 +289,55 @@ const Container = styled.button<IButtonStyledProps>`
                     color: var(--grey0);
                     
                 `
+
+           case "buttonColorBlackCardSeller":
+           
+                return css`
+                    background: #0B0D0D;
+                    border: 1.5px solid #0B0D0D;
+                    border-radius: 4px;
+                    
+                    padding: 12px 28px;
+                    font-weight: 600;
+                    font-size: 15px;
+                    color: #FFF;
+
+                    :hover {
+                        border-color: #536060;
+                        background: #536060;
+                        }
+                   `
+          
+          case "buttonColorWhiteSignUp":
+                
+                return css`
+                    background-color: #FDFDFD;
+                    border: 1.5px solid #ADB5BD;
+                    color: #0B0D0D;
+                    padding: 12px 28px;
+                    
+                    :hover {
+                        border-color: #4529E6;
+                        background-color: #4529E6;
+                        color: #FDFDFD;
+                      }
+                `
             
+            case "buttonColorGrayModalEditProfile":
+                return css`
+                    background: #DEE2E6;
+                    border: 1.5px solid #DEE2E6;
+                    border-radius: 4px;
+                    
+                    padding: 12px 28px;
+                    font-weight: 600;
+                    font-size: 16px;
+                    color: #495057;
+                    :hover {
+                        background-color: #edf4fb;
+                    }
+                `
+
             default:
                 return false
         }

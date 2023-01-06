@@ -56,4 +56,9 @@ interface IUserId {
     id: string
 }
 
-export {IUser, IUserId ,IUserRequest, IUserUpdate}
+interface IUserLogin {
+    email: string,
+    password: string
+}
+
+export {IUser, IUserId ,IUserRequest, IUserUpdate, IUserLogin}
