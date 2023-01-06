@@ -5,6 +5,11 @@ interface ICommentRequest{
     created_at:Date,
 }
 
+interface ICommentUpdate {
+    id: string
+    content?:string,
+}
+
 interface IComment {
     id: string
     content:string,
@@ -17,4 +22,4 @@ interface ICommentId {
     id: string
 }
 
-export {IComment, ICommentId, ICommentRequest}
+export {IComment, ICommentId, ICommentRequest, ICommentUpdate}
