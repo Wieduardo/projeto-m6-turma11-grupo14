@@ -11,7 +11,7 @@ export interface InputProps {
     error?: any
     required?: boolean | undefined
     onChange?: any
-    size?: "inputSize100%" | "inputSizeSecondary" | "inputCommentSize" | "inputSignUp" | "inputSignIn" | "inputModalEditProfile"
+    size?: "inputSize100%" | "inputSizeSecondary" | "inputCommentSize" | "inputSignUp" | "inputSignIn" | "inputModalEditProfile" | "inputModalEditAddressSmall"
     defaultValue?: any
     className?: any
     value?: any
