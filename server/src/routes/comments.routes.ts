@@ -4,8 +4,8 @@ import { createCommentController, deleteCommentController } from '../controllers
 const commentRoutes = Router()
 
 commentRoutes.post('', createCommentController)
-commentRoutes.get('/comment_id')
-commentRoutes.patch('/comment_id')
-commentRoutes.delete('/comment_id', deleteCommentController)
+commentRoutes.get('/:comment_id')
+commentRoutes.patch('/:comment_id')
+commentRoutes.delete('/:comment_id', deleteCommentController)
 
 export default commentRoutes
