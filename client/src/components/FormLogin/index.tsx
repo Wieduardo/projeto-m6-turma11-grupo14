@@ -24,7 +24,7 @@ const FormLogin = () => {
     const navigate = useNavigate();
 
     const schema = yup.object().shape({
-        email: yup.string().required("Usuário obrigatório"),
+        email: yup.string().required("Email obrigatório"),
         password: yup.string().required("Senha obrigatória")
     })
 
@@ -34,7 +34,12 @@ const FormLogin = () => {
 
     const onSubmitFunction = (data: any) => {
         Api.post(`/api/users/login`, data)
-        .then((res)=> navigate(`/${res.data.token}/userHome`))
+        .then((res)=> {
+
+            sessionStorage.setItem("token", res.data.token)
+
+            navigate(`/${res.data.token}/userHome`)
+        })
         .catch((res)=> console.log(res.data))
     }
 
@@ -102,7 +107,7 @@ const FormLogin = () => {
                 
             }</Button>
             <p>Ainda não possui conta?</p>
-            <Button size="buttonSizeLogin" color="buttonColorWhiteHeader" type="button">Cadastrar</Button>
+            <Button size="buttonSizeLogin" color="buttonColorWhiteHeader" type="button" onClick={() => navigate("/register")}>Cadastrar</Button>
         </Container>
     )
 }

@@ -33,15 +33,15 @@ const HeaderLogin = () => {
             <img src={ logo } alt="Motors shop" title="Motors shop" />
             <menu className="menuDefault">
                 <nav>
-                    <p>Carros</p>
-                    <p>Motos</p>
-                    <p>Leilão</p>
+                    <p onClick={() => navigate("/")}>Carros</p>
+                    <p onClick={() => navigate("/")}>Motos</p>
+                    <p onClick={() => navigate("/")}>Leilão</p>
                 </nav>
                 <hr />
                 <div>
                     {!isLoggedin && <p onClick={() => handleNavigateLogin()}>Fazer Login</p>}                    
                     {!isLoggedin ?                     
-                    <Button size="buttonSizeHeader" color="buttonColorWhiteHeader" type="button" >Cadastrar</Button>
+                    <Button size="buttonSizeHeader" color="buttonColorWhiteHeader" type="button" onClick={() => navigate("/register")}>Cadastrar</Button>
                     :
                     <Profile name={userId === User01.id ? User01.name : User02.name} img={userId === User01.id ? User01.profilePicture : User02.profilePicture}/>
                     }
@@ -63,9 +63,9 @@ const HeaderLogin = () => {
                 {
                     menuOpen && 
                     <nav>
-                        <p>Carros</p>
-                        <p>Motos</p>
-                        <p>Leilão</p>
+                        <p onClick={() => navigate("/")}>Carros</p>
+                        <p onClick={() => navigate("/")}>Motos</p>
+                        <p onClick={() => navigate("/")}>Leilão</p>
                         <hr />
                         <div>
                             {!isLoggedin && <p onClick={() => handleNavigateLogin()}>Fazer Login</p>}

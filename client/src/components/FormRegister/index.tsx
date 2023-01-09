@@ -95,7 +95,7 @@ const FormRegister = ({ setOpenModalSuccess }: IFormSignUp) => {
     Reflect.deleteProperty(data, "repeat_password");
 
     Api
-      .post("/users/signup", data)
+      .post("/api/users", data)
       .then((_) => setOpenModalSuccess(true))
       .catch((error) => console.error(error))
       .finally(() => setLoad(false));
