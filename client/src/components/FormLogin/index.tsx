@@ -8,11 +8,8 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-import { User01 } from "../../Mocks/User"
-import { User02 } from "../../Mocks/User"
-
-
 import { UserContext } from "../../context"
+import { Api } from "../../services/api"
 
 const FormLogin = () => {
 
@@ -27,7 +24,7 @@ const FormLogin = () => {
     const navigate = useNavigate();
 
     const schema = yup.object().shape({
-        username: yup.string().required("Usuário obrigatório"),
+        email: yup.string().required("Email obrigatório"),
         password: yup.string().required("Senha obrigatória")
     })
 
@@ -36,15 +33,14 @@ const FormLogin = () => {
     })
 
     const onSubmitFunction = (data: any) => {
-        if(data.username === User01.username){
-            navigate(`/${User01.id}/userHome`)
-            handleLogin();
-        }else if(data.username === User02.username){
-            navigate(`/${User02.id}/userHome`)
-            handleLogin();
-        }else{
-            alert("Usuário não cadastrado")
-        }
+        Api.post(`/api/users/login`, data)
+        .then((res)=> {
+
+            sessionStorage.setItem("token", res.data.token)
+
+            navigate(`/${res.data.token}/userHome`)
+        })
+        .catch((res)=> console.log(res.data))
     }
 
     return (
@@ -53,7 +49,7 @@ const FormLogin = () => {
 
             <Input
             label="Usuário"
-            name="username"
+            name="email"
             register={ register }
             placeholder="Digitar usuário"
             autoComplete="off"
@@ -111,7 +107,7 @@ const FormLogin = () => {
                 
             }</Button>
             <p>Ainda não possui conta?</p>
-            <Button size="buttonSizeLogin" color="buttonColorWhiteHeader" type="button">Cadastrar</Button>
+            <Button size="buttonSizeLogin" color="buttonColorWhiteHeader" type="button" onClick={() => navigate("/register")}>Cadastrar</Button>
         </Container>
     )
 }

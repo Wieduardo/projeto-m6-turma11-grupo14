@@ -7,7 +7,7 @@ const listOneProdService = async ({prod_id}: IProductId) => {
     
     const prodRepository = AppDataSource.getRepository(Product)
 
-    const prod = await prodRepository.findOne({where: {id: prod_id}})
+    const prod = await prodRepository.findOne({where: {id: prod_id}, relations: { user: true}})
 
     if(!prod){
         throw new AppError(404,"Product does not exist")

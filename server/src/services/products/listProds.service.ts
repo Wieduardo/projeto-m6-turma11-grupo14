@@ -5,7 +5,7 @@ const listProdService = async () =>{
 
     const productRepository = AppDataSource.getRepository(Product)
 
-    const products = await productRepository.find()
+    const products = await productRepository.find({relations: { user: true}})
 
     return products
 }
