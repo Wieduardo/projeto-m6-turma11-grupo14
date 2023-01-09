@@ -6,15 +6,19 @@ import {
     List
 }from "./styles";
 
-const CommentList = () => {
+interface ICommentsList {
+    comments: []
+}
+
+const CommentList = ({ comments }: ICommentsList) => {
     return (
         <Container>
             <PrincipalContent>
                 <Title>Comentários</Title>
                 <List>
-                    <Comment/>
-                    <Comment/>
-                    <Comment/>
+                    {
+                        comments.map(comment => <Comment comment={ comment } />)
+                    }
                 </List>
             </PrincipalContent>
         </Container>

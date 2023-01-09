@@ -1,6 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup"
+import { Api } from "../../services/api";
 
 import { Button } from "../Button";
 import { TextArea } from "../TextArea";
@@ -17,7 +18,11 @@ import {
     Option
 } from "./styles";
 
-const AddComment = () => {
+interface IAddComment{
+    ListCommentsFunc: any
+}
+
+const AddComment = ({ ListCommentsFunc }: IAddComment) => {
     const schema = yup.object().shape({
         comment: yup.string().required("Comentário é obrigatório"),        
     })
@@ -27,7 +32,10 @@ const AddComment = () => {
     })
 
     function handleComment(data:any){
-        console.log(data)
+        
+        Api.post("api/comments", data)
+        .then(res => ListCommentsFunc(res.data))
+        .catch(err => console.error(err))
     }
 
     return(
