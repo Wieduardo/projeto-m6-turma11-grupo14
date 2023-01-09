@@ -2,7 +2,11 @@ import { useNavigate } from "react-router-dom";
 import { Container } from "./style";
 import { Button } from "../Button";
 
-const ModalSucessUser = () => {
+interface IFormSignUp {
+  setOpenModalSuccess:  React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const ModalSucessUser = ({ setOpenModalSuccess }: IFormSignUp) => {
   const navigate = useNavigate();
 
   return (
@@ -10,7 +14,7 @@ const ModalSucessUser = () => {
       <header>
         <p>Sucesso!</p>
 
-        <img src="" />
+        <img src="" onClick={ () => setOpenModalSuccess(false) } />
       </header>
 
       <div>
@@ -23,7 +27,8 @@ const ModalSucessUser = () => {
           color="buttonColorBlueLogin"
           type="button"
           onClick={() => {
-            navigate("/signin");
+            setOpenModalSuccess(false)
+            navigate("/login");
           }}
         >
           Ir para o login
