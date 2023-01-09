@@ -17,6 +17,8 @@ const ProductPage = () => {
 
     const [isLoading, setIsLoading] = useState<any>(true);
 
+    const [comments, setComments] = useState<any>([])
+
     const { productId } = useParams();
 
     const fetchProductData = () => {
@@ -24,10 +26,17 @@ const ProductPage = () => {
         .then((resp) => setProduct(resp.data)).then(()=> setIsLoading(false))
     }
 
+    const fetchCommmentsProductData = () => {
+        Api.get(`/api/comments/prod/${productId}`)
+        .then((resp) => setComments(resp.data)).then(()=> setIsLoading(false))
+    }
+
+    const ListCommentsFunc = (comment: any) => setComments([ comment, ...comments ])
 
     useEffect(() => {
         fetchProductData()
-        function handleWindowResize() {
+        fetchCommmentsProductData()
+        function handleWindowResize() { 
           setWindowSize(getWindowSize());
         }
     
@@ -52,8 +61,8 @@ const ProductPage = () => {
             <ProductDetails product={product}/> 
             <ProductDescription product={product}/>
             {windowSize.innerWidth < 741 && <AllVehiclePhotos/>}
-            <CommentList/>
-            <AddComment/>
+            <CommentList comments={ comments } />
+            <AddComment ListCommentsFunc={ ListCommentsFunc } />
         </>
         }
             
