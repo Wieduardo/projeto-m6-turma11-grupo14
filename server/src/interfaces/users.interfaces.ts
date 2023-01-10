@@ -21,24 +21,10 @@ interface IUserUpdate {
     is_seller?: boolean
 }
 
-interface IUserUpdate {
-    id: string,
-    name?: string,
-    email?: string,
-    password?: string,
-    cellphone?: string,
-    address?: string,
-    cpf?: string,
-    birthdate?: string,
-    isActive?: boolean,
-    is_seller?: boolean
-}
-
 interface IUser {
     id: string,
     name: string,
     email: string,
-    password: string,
     cellphone: string,
     address: string,
     cpf: string,

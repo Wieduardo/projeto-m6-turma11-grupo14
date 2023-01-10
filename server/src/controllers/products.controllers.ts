@@ -9,8 +9,11 @@ import patchProdService from "../services/products/updateProd.service";
 import listUserProductsService from "../services/products/listUserProds.service";
 
 const createProdController = async( req: Request, res: Response)=>{
+    const { authorization } = req.headers;
+	const token = authorization!.split(" ")[1];
+	const { id } = jwt.decode(token) as { id: string };
     const data = req.body;
-    const newproduct = await createProdService(data);
+    const newproduct = await createProdService(id,data);
 
 	return res.status(201).send(instanceToPlain(newproduct));
 }
@@ -28,16 +31,23 @@ const retrieveUserController= async (req: Request, res: Response) => {
 }
 
 const deleteProdController = async (req: Request, res: Response) => {
+    const { authorization } = req.headers;
+	const token = authorization!.split(" ")[1];
+	const { id } = jwt.decode(token) as { id: string };
     const {prod_id} = req.params
-    const deleteUser = await deleteProdService({prod_id});
+    const deleteUser = await deleteProdService(id,{prod_id});
 	return res.status(204).send();
 }
 
 const patchProdController = async (req: Request, res: Response) => {
+    const { authorization } = req.headers;
+	const token = authorization!.split(" ")[1];
+	const { id } = jwt.decode(token) as { id: string };
     const { prod_id } = req.params
     const { name, description,year,kilometers, ad_type,  price, vehicle_type, images } = req.body;
 
 	const output = await patchProdService({
+        id,
 		prod_id,
         name, 
         description,

@@ -1,6 +1,7 @@
-import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn,OneToMany} from 'typeorm'
+import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, OneToOne, JoinColumn} from 'typeorm'
 import { Comment } from './comment.entity'
 import { Product } from './products.entity'
+import { Address } from './address.entity'
 
 @Entity('users')
 class User{
@@ -20,8 +21,8 @@ class User{
     @Column()
     cellphone: string
 
-    @Column()
-    address: string
+    @OneToOne(() => Address, {eager: true}) @JoinColumn()
+    address: Address
 
     @Column()
     cpf: string

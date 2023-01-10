@@ -1,16 +1,17 @@
 interface IProductRequest{
+    id: string,
     name: string,
     description: string,
     year: number,
     kilometers: number,
     ad_type: string,
     price: string,
-    user: string,
     vehicle_type: string,
     images: string
 }
 
 interface IProductPatch{
+    id: string,
     prod_id: string,
     name?: string,
     description?: string,
