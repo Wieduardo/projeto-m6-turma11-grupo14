@@ -2,15 +2,15 @@ import AppDataSource from "../../data-source";
 import { Product } from "../../entities/products.entity";
 import { User } from "../../entities/user.entity";
 import { IProductRequest } from "../../interfaces/products.interfaces";
+import { IUserId } from "../../interfaces/users.interfaces";
 
-const createProdService = async ({
+const createProdService = async (id: any,{
     name,
     description,
     year,
     kilometers,
     ad_type,
     price,
-    user,
     vehicle_type,
     images}: IProductRequest) =>{
 
@@ -18,7 +18,7 @@ const createProdService = async ({
     const usersRepository= AppDataSource.getRepository(User);
 
     const usuario = await usersRepository.findOneBy({
-        id: user
+        id: id
     })
 
 
