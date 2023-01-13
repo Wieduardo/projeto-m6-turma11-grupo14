@@ -35,9 +35,11 @@ import {
  } from "./styles";
 import { UserContext } from '../../context';
 import { Api } from '../../services/api';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const FormAddProduct = () => {
+
+    const navigate = useNavigate()
 
     const { userId } = useParams();
 
@@ -61,8 +63,12 @@ const FormAddProduct = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     })
+    const token = sessionStorage.getItem("token")
 
     const onSubmitFunction = (data: any) => {
+
+        console.log(token)
+
         
         if(!adType){
             return alert("Selecione o tipo de anúncio.");
@@ -79,8 +85,11 @@ const FormAddProduct = () => {
     } 
 
     const fetchCreateNewProduct = (data: any) => {
-        Api.post(`/api/products`, data)
-        .then((resp) => console.log(resp.data))
+        Api.post(`/api/products`, data, {
+            headers:{
+                "Authorization": `Bearer ${token}`
+            }
+        })
         .then((_)=> handleOpenModalAdProd())
     }
 

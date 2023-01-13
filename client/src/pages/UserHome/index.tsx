@@ -28,9 +28,7 @@ interface UserProductsProps {
 
 const UserHome = () => {
 
-    const [isLoading, setIsloading] = useState<boolean>(true)
-
-    
+    const [isLoading, setIsloading] = useState<boolean>(true)    
 
     const [userProducts, setUserProducts] = useState<IProductProps[]>([])
 
@@ -48,9 +46,7 @@ const UserHome = () => {
 
     const onLogin = () => {     
 
-        const token = sessionStorage.getItem("token")
-
-        
+        const token = sessionStorage.getItem("token")        
 
         Api.get(`/api/users/user`, {
             headers:{
