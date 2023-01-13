@@ -30,7 +30,7 @@ const HeaderLogin = () => {
 
     return (
         <Container>
-            <img src={ logo } alt="Motors shop" title="Motors shop" />
+            <img src={ logo } alt="Motors shop" title="Motors shop" onClick={() => navigate("/")}/>
             <menu className="menuDefault">
                 <nav>
                     <p onClick={() => navigate("/")}>Carros</p>
