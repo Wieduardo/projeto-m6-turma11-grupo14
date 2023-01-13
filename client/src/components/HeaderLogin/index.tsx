@@ -3,7 +3,7 @@ import menu from "../../assets/bars.svg"
 import close from "../../assets/xmark.svg"
 import { Button } from "../Button"
 import { Container } from "./style"
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -12,9 +12,10 @@ import { Profile } from "../Profile"
 
 import { User01 } from "../../Mocks/User"
 import { User02 } from "../../Mocks/User"
+import { Api } from "../../services/api"
 
 
-const HeaderLogin = () => {
+const HeaderLogin = ({ name }: any) => {
 
     let { userId } = useParams();
 
@@ -26,7 +27,7 @@ const HeaderLogin = () => {
 
     function handleNavigateLogin(){
         navigate("/login")
-    }
+    }       
 
     return (
         <Container>
@@ -43,7 +44,7 @@ const HeaderLogin = () => {
                     {!isLoggedin ?                     
                     <Button size="buttonSizeHeader" color="buttonColorWhiteHeader" type="button" onClick={() => navigate("/register")}>Cadastrar</Button>
                     :
-                    <Profile name={userId === User01.id ? User01.name : User02.name} img={userId === User01.id ? User01.profilePicture : User02.profilePicture}/>
+                    <Profile name={name} img={User02.profilePicture}/>
                     }
                 </div>
             </menu>

@@ -94,6 +94,8 @@ const FormRegister = ({ setOpenModalSuccess }: IFormSignUp) => {
 
     Reflect.deleteProperty(data, "repeat_password");
 
+    console.log(data)
+
     Api
       .post("/api/users", data)
       .then((_) => setOpenModalSuccess(true))
@@ -397,7 +399,6 @@ const FormRegister = ({ setOpenModalSuccess }: IFormSignUp) => {
         className="buttonSubmit"
         size="buttonSizeLogin"
         color="buttonColorBlueLogin"
-        type="submit"
         disabled={load}
       >
         {load ? "Finalizando..." : "Finalizar cadastro"}

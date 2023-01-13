@@ -40,6 +40,7 @@ const FormLogin = () => {
 
             navigate(`/${res.data.token}/userHome`)
         })
+        .then((_)=> handleLogin())
         .catch((res)=> console.log(res.data))
     }
 
