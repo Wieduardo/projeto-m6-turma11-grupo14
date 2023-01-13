@@ -18,6 +18,8 @@ import {
  ProfilePicture,
 } from './styles';
 
+const token = sessionStorage.getItem("token")  
+
 export function Profile({img, name}:IProfile){
 
     const { handleLogin } = useContext(UserContext);
@@ -36,7 +38,7 @@ export function Profile({img, name}:IProfile){
                     {name}
                 </MenuButton>
                 <MenuList>
-                    <MenuItem>Editar Perfil</MenuItem>
+                    <MenuItem onClick={() => navigate(`/${token}/userHome`)}>Perfil</MenuItem>
                     <MenuItem>Editar endereço</MenuItem>
                     <MenuItem>Meus anúncios</MenuItem>
                     <MenuItem onClick={() => handleLogout()}>Sair</MenuItem>
