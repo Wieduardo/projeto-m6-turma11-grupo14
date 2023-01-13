@@ -18,6 +18,9 @@ const Home = () => {
 
     const [ cars, setCars ] = useState<IProductProps[]>([])
 
+    const [user, setUser] = useState<any>()
+
+    const [isLoading, setIsloading] = useState<boolean>(true)  
 
     const fetchUserProducts = () => {
         Api.get(`/api/products`)
@@ -46,14 +49,34 @@ const Home = () => {
         setMotorcycles(motorcyclesList);
     }
 
+    
+    const onLogin = () => {     
+
+        const token = sessionStorage.getItem("token")        
+
+        Api.get(`/api/users/user`, {
+            headers:{
+                "Authorization": `Bearer ${token}`
+            }
+        })
+        .then((res) => setUser(res.data))
+        .then((_) => setIsloading(false))
+            
+    }
+
     useEffect(() => {
         fetchUserProducts();
+        onLogin();
     },[])
 
 
+
     return (
+
+        !isLoading &&
+
         <Container>
-            <HeaderLogin />
+            <HeaderLogin name={user.name}/>
             <Banner />
             <ListCardAuction
             auctions={ products }
