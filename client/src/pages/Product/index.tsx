@@ -26,25 +26,25 @@ const ProductPage = () => {
         .then((resp) => setProduct(resp.data)).then(()=> setIsLoading(false))
     }
 
-    const fetchCommmentsProductData = () => {
-        Api.get(`/api/comments/prod/${productId}`)
-        .then((resp) => setComments(resp.data)).then(()=> setIsLoading(false))
-    }
+    // const fetchCommmentsProductData = () => {
+    //     Api.get(`/api/comments/prod/${productId}`)
+    //     .then((resp) => setComments(resp.data)).then(()=> setIsLoading(false))
+    // }
 
     const ListCommentsFunc = (comment: any) => setComments([ comment, ...comments ])
 
     useEffect(() => {
         fetchProductData()
-        fetchCommmentsProductData()
-        function handleWindowResize() { 
-          setWindowSize(getWindowSize());
-        }
+        // fetchCommmentsProductData()
+        // function handleWindowResize() { 
+        //   setWindowSize(getWindowSize());
+        // }
     
-        window.addEventListener("resize", handleWindowResize);
+        // window.addEventListener("resize", handleWindowResize);
     
-        return () => {
-          window.removeEventListener("resize", handleWindowResize);
-        };
+        // return () => {
+        //   window.removeEventListener("resize", handleWindowResize);
+        // };
     }, []);
     
     function getWindowSize() {
