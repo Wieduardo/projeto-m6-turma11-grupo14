@@ -28,6 +28,8 @@ interface UserProductsProps {
 
 const UserHome = () => {
 
+    const [isLoading, setIsloading] = useState<boolean>(true)
+
     
 
     const [userProducts, setUserProducts] = useState<IProductProps[]>([])
@@ -36,19 +38,41 @@ const UserHome = () => {
 
     const [ auctions, setAuctions ] = useState<IProductProps[]>([])
 
+    const [user, setUser] = useState<any>()
+
     let { userId } = useParams();
 
     const fetchUserProducts = () => {
         Api.get(`/api/products/user/${userId}`).then((resp) => setUserProducts(resp.data));
+    }    
+
+    const onLogin = () => {     
+
+        const token = sessionStorage.getItem("token")
+
+        
+
+        Api.get(`/api/users/user`, {
+            headers:{
+                "Authorization": `Bearer ${token}`
+            }
+        })
+        .then((res) => setUser(res.data))
+        .then((_) => setIsloading(false))
+            
     }
 
     useEffect(() => {
+        onLogin()
         fetchUserProducts();
     },[])
 
     return (
+
+        !isLoading &&    
+
         <Container>
-            <HeaderLogin/>
+            <HeaderLogin name={user.name}/>
             <div className="blueDiv"/>
             <section className="userCardSection">
                 <UserCard/>
@@ -66,6 +90,7 @@ const UserHome = () => {
             />
             <FooterLogin />
         </Container>
+        
     )
 }
 
