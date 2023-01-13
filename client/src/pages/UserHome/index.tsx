@@ -71,7 +71,7 @@ const UserHome = () => {
             <HeaderLogin name={user.name}/>
             <div className="blueDiv"/>
             <section className="userCardSection">
-                <UserCard/>
+                <UserCard user={user}/>
             </section>
             <ListCardAuction
             auctions={ userProducts }
