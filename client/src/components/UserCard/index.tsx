@@ -29,7 +29,7 @@ export function UserCard({user}:any){
             <ProfilePicture src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrh59UXvIbu9gHbxWmUeHtSz2Oe_rCM1iL-g&usqp=CAU"/>
             <UsernameAndType>
                 <Username>{user.name}</Username>
-                <UserType>{user.is_seller}</UserType>
+                <UserType>{user.is_seller ? "Vendedor": "Comprador"}</UserType>
             </UsernameAndType>
             <UserDescription>
                 {user.name} - {user.email} - {user.cellphone}
